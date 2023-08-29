@@ -1,14 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
-    --yellow: #FFC857;
-    --dark-yellow: #e0ac43;
     --red: #CC2936;
     --black: #141414;
     --dark-grey: #2A2D34;
-    --light-blue: #A9DDD6;
     --blue: #3483FA;
     --white: #FFF9F5;
+    --dark-green: #264653;
+    --green: #2a9d8f;
+    --light-green: #E8FCCF;
+    --yellow: #e9c46a;
+    --light-orange: #f4a261;
+    --orange: #F4743B;
 }
 
 * {
@@ -19,11 +22,11 @@
 }
 
 body {
-    background-color: var(--white);
+    background-color: var(--dark-green);
 }
 
 header {
-    background-color: var(--blue);
+    background-color: var(--green);
 }
 
 .header-content {
@@ -50,10 +53,17 @@ header {
     border-radius: 50%;
 }
 
+main {
+    display: flex;
+}
+
 .side-menu {
     width: 310px;
-    background-color: var(--red);
+    height: fit-content;
     padding: 30px;
+    background-color: var(--light-green);
+    border-right: 3px solid var(--green);
+    border-bottom: 3px solid var(--green);
     border-bottom-right-radius: 10px;
 }
 
@@ -66,7 +76,7 @@ header {
 }
 
 .add-study-btn {
-    background-color: var(--yellow);
+    background-color: var(--orange);
     padding: 10px 20px;
     border-radius: 15px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
@@ -93,4 +103,68 @@ header {
 
 .side-menu li a p {
     margin-left: 10px;
+}
+
+.main-content-container {
+    padding: 30px;
+    width: calc(100% - 310px);
+    min-height: calc(100vh - 100px);
+    height: fit-content;
+}
+
+.main-content-container ul {
+    list-style: none;
+}
+
+.today-reviews {
+    height: fit-content;
+}
+
+.review-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: var(--light-green);
+    border-radius: 20px;
+}
+
+.review-subject-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: fit-content;
+    height: 60px;
+    padding: 5px;
+}
+
+.review-subject-icon-outline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    background-color: var(--green);
+    min-width: 60px;
+    min-height: 60px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.review-subject-icon {
+    background-color: var(--red);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.review-date {
+    margin-left: 20px;
+    padding: 2px 4px;
+    height: fit-content;
+    font-size: 16pt;
+    border: 5px solid var(--green);
+    border-radius: 5px;
 }
