@@ -53,6 +53,16 @@ header {
     border-radius: 50%;
 }
 
+footer {
+    height: 100px;
+    background-color: var(--green);
+}
+
+footer h3 {
+    line-height: 100px;
+    text-align: center;
+}
+
 main {
     display: flex;
 }

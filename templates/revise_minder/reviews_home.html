@@ -1,69 +1,7 @@
-{% load static %}
-
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
-    <title>Revise Minder</title>
-</head>
-<body>
-    <header>
-        <div class="header-content">
-            <div class="header-logo">
-                <a href="{% url 'reviews_home' %}">
-                    <h1>Revise Minder</h1>
-                </a>
-            </div>
-            <a href="#">
-                <div class="header-user-menu">
-                </div>
-            </a>
-        </div>
-    </header>
-    <main>
-        <div class="side-menu">
-            <a href="#" class="add-study-btn-anchor">
-                <div class="add-study-btn">
-                    <h2>+ Estudo</h2>
-                </div>
-            </a>
-            <nav>
-                <ul class="side-menu-list">
-                    <li>
-                        <a href="#">
-                            <svg width="35" height="35" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="0.5" y="2.5" width="19" height="22" rx="0.5" fill="white" stroke="black"/>
-                                <rect x="3.5" y="0.5" width="19" height="22" rx="0.5" fill="white" stroke="black" stroke-linejoin="round"/>
-                                <path d="M6 12H20" stroke="black" stroke-linecap="round"/>
-                                <path d="M6 4L20 4" stroke="black" stroke-linecap="round"/>
-                                <path d="M6 8H20" stroke="black" stroke-linecap="round"/>
-                                <path d="M6 16H20" stroke="black" stroke-linecap="round"/>
-                                <path d="M6 20H20" stroke="black" stroke-linecap="round"/>
-                                <circle cx="8" cy="18" r="4" fill="white"/>
-                                <circle cx="8" cy="18" r="3" fill="white" stroke="black"/>
-                            </svg>
-                            <p>Revisões passadas</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="18" cy="17" r="4" fill="black"/>
-                                <path d="M34 11.5C34 12.3284 33.3284 13 32.5 13C31.6716 13 31 12.3284 31 11.5C31 10.6716 31.6716 10 32.5 10C33.3284 10 34 10.6716 34 11.5Z" fill="black"/>
-                                <circle cx="3.5" cy="9.5" r="1.5" fill="black"/>
-                                <circle cx="13.5" cy="30.5" r="1.5" fill="black"/>
-                                <path d="M25.5 17.5C25.5 22.2776 24.6137 26.5786 23.2021 29.6665C21.7703 32.7985 19.894 34.5 18 34.5C16.106 34.5 14.2297 32.7985 12.7979 29.6665C11.3863 26.5786 10.5 22.2776 10.5 17.5C10.5 12.7224 11.3863 8.42141 12.7979 5.33351C14.2297 2.20148 16.106 0.5 18 0.5C19.894 0.5 21.7703 2.20148 23.2021 5.33351C24.6137 8.42141 25.5 12.7224 25.5 17.5Z" stroke="black"/>
-                                <path d="M13.156 10.618C17.5733 7.28932 22.0891 4.99936 25.805 3.97624C27.6645 3.46426 29.2979 3.27669 30.6066 3.41696C31.9142 3.55711 32.8481 4.01686 33.4023 4.75232C33.9565 5.48778 34.1411 6.51229 33.9154 7.80783C33.6895 9.10452 33.0589 10.6229 32.0542 12.2692C30.0465 15.5592 26.6005 19.2689 22.1832 22.5976C17.7658 25.9263 13.25 28.2163 9.53411 29.2394C7.67464 29.7514 6.04125 29.9389 4.73253 29.7987C3.42497 29.6585 2.49101 29.1988 1.9368 28.4633C1.38259 27.7278 1.19808 26.7033 1.42377 25.4078C1.64967 24.1111 2.2802 22.5927 3.28488 20.9464C5.29261 17.6564 8.73858 13.9468 13.156 10.618Z" stroke="black"/>
-                                <path d="M22.9729 11.3045C26.884 15.2156 29.7801 19.3688 31.3104 22.9061C32.0762 24.6762 32.4893 26.2676 32.5325 27.5831C32.5757 28.8975 32.2504 29.8863 31.5993 30.5375C30.9481 31.1887 29.9592 31.514 28.6449 31.4708C27.3294 31.4275 25.738 31.0145 23.9679 30.2487C20.4305 28.7184 16.2774 25.8222 12.3663 21.9111C8.45515 18 5.559 13.8469 4.02868 10.3095C3.2629 8.53938 2.84983 6.948 2.8066 5.6325C2.7634 4.31815 3.0887 3.32929 3.73987 2.67812C4.39105 2.02695 5.3799 1.70165 6.69425 1.74484C8.00975 1.78808 9.60114 2.20115 11.3713 2.96693C14.9086 4.49725 19.0618 7.3934 22.9729 11.3045Z" stroke="black"/>
-                            </svg>  
-                            <p>Assuntos</p>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+{% extends 'revise_minder/base.html' %}
+{% block content %}
+    <main class="revise-minder-main-container">
+        {% include 'revise_minder/partials/_side-menu.html' %}
         <div class="main-content-container">
             <div class="today-reviews">
                 <h3 class="reviews-list-title">Revisões para hoje</h3>
@@ -144,6 +82,4 @@
             </div>
         </div>
     </main>
-    <footer></footer>
-</body>
-</html>
+{% endblock %}
