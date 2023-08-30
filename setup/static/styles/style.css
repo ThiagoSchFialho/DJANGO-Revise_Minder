@@ -65,6 +65,7 @@ main {
     border-right: 3px solid var(--green);
     border-bottom: 3px solid var(--green);
     border-bottom-right-radius: 10px;
+    box-shadow: 0px -10px 0px var(--green), 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .add-study-btn-anchor {
@@ -120,6 +121,14 @@ main {
     height: fit-content;
 }
 
+.today-reviews h3 {
+    font-size: 19pt;
+    text-decoration: underline;
+    color: var(--white);
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
 .review-list-item {
     display: flex;
     justify-content: space-between;
@@ -129,6 +138,7 @@ main {
     padding: 15px;
     background-color: var(--light-green);
     border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .review-subject-info {
@@ -165,6 +175,7 @@ main {
     padding: 2px 4px;
     height: fit-content;
     font-size: 16pt;
-    border: 5px solid var(--green);
+    color: var(--dark-green);
+    border: 2px solid var(--green);
     border-radius: 5px;
 }
