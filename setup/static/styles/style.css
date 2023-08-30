@@ -113,6 +113,11 @@ main {
     height: fit-content;
 }
 
+.main-content-container hr {
+    margin-bottom: 50px;
+    border: 2px solid var(--white);
+}
+
 .main-content-container ul {
     list-style: none;
 }
@@ -121,7 +126,7 @@ main {
     height: fit-content;
 }
 
-.today-reviews h3 {
+.reviews-list-title {
     font-size: 19pt;
     text-decoration: underline;
     color: var(--white);
