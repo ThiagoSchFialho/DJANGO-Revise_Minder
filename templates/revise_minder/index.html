@@ -1,5 +1,48 @@
 {% extends 'revise_minder/base.html' %}
 {% block content %}
-    <p>revise minder</p>
-    <a href="{% url 'reviews_home' %}">reviews home</a>
+    <div class="banner">
+        <div class="banner-text">
+            <h1>Organize Suas Revisões de Forma Eficiente</h1>
+            <p>Seja bem-vindo(a) à sua nova ferramenta de planejamento de estudos!</p>
+            <p>Com Revise Minder, você terá todo o controle para maximizar sua produtividade e aprendizado.</p>
+        </div>
+        <div class="banner-img"></div>
+    </div>
+    <section class="presentation">
+        <div class="how-works-container">
+            <h2 class="presentation-title">Como Funciona:</h2>
+            <div class="how-works">
+                <div class="how-works-item">
+                    <h3>Insira as Datas de Estudo</h3>
+                    <p>Adicione as datas em que você estudou ou planeja estudar para um exame, teste ou projeto importante.</p>
+                </div>
+                <div class="how-works-item">
+                    <h3>Planejamento Automático</h3>
+                    <p>Nosso sistema inteligente calculará automaticamente os melhores momentos para revisar o material. Ele usa técnicas de espaçamento para otimizar sua memória a longo prazo.</p>
+                </div>
+                <div class="how-works-item">
+                    <h3>Acompanhe Seu Progresso</h3>
+                    <p>Acompanhe seu progresso ao longo do tempo. Veja quais tópicos você domina e quais precisam de mais atenção.</p>
+                </div>
+            </div>
+        </div>
+        <div class="benefits-container">
+            <h2 class="presentation-title">Benefícios:</h2>
+             <div class="benefits">
+                <div class="benefits-line">
+                    <div class="benefit">🧠 Melhore a Retenção: Nossa abordagem de revisão espaçada é comprovada para melhorar a retenção de informações.</div>
+                    <div class="benefit">⏳ Economize Tempo: Elimine a preocupação de quando revisar. Nosso sistema faz o trabalho pesado por você.</div>
+                </div>
+                <div class="benefits-line">
+                    <div class="benefit">📅 Agendamento Flexível: Nosso sistema se adapta à sua programação. Mude as datas de estudo conforme necessário e continue recebendo um plano de revisão otimizado.</div>
+                    <div class="benefit">🌟 Simplicidade Intuitiva: Navegue pelo nosso site de forma fácil e intuitiva. Não é necessário ser um expert em tecnologia para aproveitar todos os benefícios.</div>
+                </div>
+             </div>
+        </div>
+        <div class="start-now">
+            <h2 class="presentation-title">Comece Agora:</h2>
+            <p>Comece a aproveitar ao máximo o seu tempo de estudo! Crie uma conta gratuita e coloque Revise Minderpara trabalhar para você.</p>
+            <a href="{% url 'reviews_home' %}">Começar Agora</a>
+        </div>
+    </section>
 {% endblock %}
