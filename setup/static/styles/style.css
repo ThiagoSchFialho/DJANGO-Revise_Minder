@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
 
 :root {
     --red: #CC2936;
@@ -51,6 +51,20 @@ header {
     height: 60px;
     background-color: var(--black);
     border-radius: 50%;
+}
+
+.user-authentication a{
+    color: var(--black);
+    padding: 5px 15px;
+    text-decoration: none;
+    font-size: 14pt;
+    font-weight: bold;
+    background-color: var(--orange);
+    border-radius: 65px;
+}
+
+.user-authentication a:first-child {
+    margin-right: 20px;
 }
 
 footer {
@@ -195,13 +209,49 @@ main {
     border-radius: 5px;
 }
 
-.presentation-title {
-    margin: 150px auto 50px auto;
+.banner {
+    display: flex;
+    height: calc(100vh - 100px);
+}
+
+.banner-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 150px 70px;
+    width: 50%;
+    align-items: center;
+}
+
+.banner-text h1 {
+    font-size: 30pt;
     text-align: center;
 }
 
-.banner {
-    height: calc(100vh - 100px);
+.banner-paragraphs p:first-child {
+    margin-bottom: 35px;
+}
+
+.banner-paragraphs p {
+    text-align: center;
+    font-size: 17pt;
+    font-weight: 500;
+}
+
+.banner-img {
+    width: 50%;
+    height: 100%;
+    background-color: var(--blue);
+}
+
+.presentation {
+    color: var(--super-dark-green);
+}
+
+.presentation-title {
+    margin: 150px auto 50px auto;
+    text-align: center;
+    font-size: 25pt;
 }
 
 .how-works-container h2{
@@ -268,7 +318,12 @@ main {
 .start-now p {
     text-align: center;
     font-size: 17pt;
+    font-weight: 600;
     margin-bottom: 30px;
+    padding: 10px;
+    background-color: var(--light-green);
+    border: 2px solid var(--super-dark-green);
+    border-radius: 5px;
 }
 
 .start-now a{
@@ -280,4 +335,30 @@ main {
     text-decoration: none;
     background-color: var(--orange);
     border-radius: 5px;
+}
+
+@media screen and (max-width: 1366px) {
+    .banner-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 80px 50px;
+        width: 50%;
+        align-items: center;
+    }
+    
+    .banner-text h1 {
+        font-size: 28pt;
+        text-align: center;
+    }
+    
+    .banner-paragraphs p:first-child {
+        margin-bottom: 25px;
+    }
+    
+    .banner-paragraphs p {
+        text-align: center;
+        font-size: 15pt;
+        font-weight: 500;
+    }
 }

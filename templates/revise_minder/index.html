@@ -1,10 +1,25 @@
 {% extends 'revise_minder/base.html' %}
 {% block content %}
+    <header>
+        <div class="header-content">
+            <div class="header-logo">
+                <a href="{% url 'reviews_home' %}">
+                    <h1>Revise Minder</h1>
+                </a>
+            </div>
+            <div class="user-authentication">
+                <a href="{% url 'login' %}" class="login">Login</a>
+                <a href="{% url 'signup' %}" class="signup">Cadastrar</a>
+            </div>
+        </div>
+    </header>
     <div class="banner">
         <div class="banner-text">
             <h1>Organize Suas Revisões de Forma Eficiente</h1>
-            <p>Seja bem-vindo(a) à sua nova ferramenta de planejamento de estudos!</p>
-            <p>Com Revise Minder, você terá todo o controle para maximizar sua produtividade e aprendizado.</p>
+            <div class="banner-paragraphs">
+                <p>Seja bem-vindo(a) à sua nova ferramenta de planejamento de estudos!</p>
+                <p>Com Revise Minder, você terá todo o controle para maximizar sua produtividade e aprendizado.</p>
+            </div>
         </div>
         <div class="banner-img"></div>
     </div>
@@ -41,8 +56,8 @@
         </div>
         <div class="start-now">
             <h2 class="presentation-title">Comece Agora:</h2>
-            <p>Comece a aproveitar ao máximo o seu tempo de estudo! Crie uma conta gratuita e coloque Revise Minderpara trabalhar para você.</p>
-            <a href="{% url 'reviews_home' %}">Começar Agora</a>
+            <p>Comece a aproveitar ao máximo o seu tempo de estudo! Crie uma conta gratuita e coloque Revise Minder para trabalhar para você.</p>
+            <a href="{% url 'signup' %}">Começar Agora</a>
         </div>
     </section>
 {% endblock %}
