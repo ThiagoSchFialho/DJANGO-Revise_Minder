@@ -6,6 +6,16 @@
     <title>Login</title>
 </head>
 <body>
-    <p>login</p>
+    <form action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        {% for field in form.visible_fields %}
+        <div>
+            <label for="{{ field.id_or_label }}">{{ field.label }}</label><BR>
+            {{ field }}
+        </div>
+        {% endfor %}
+        <button type="submit">Enviar</button>
+    </form>
+    <p>Ainda não possui conta? Faça o <a href="{% url 'signup' %}">Cadastro</a></p>
 </body>
 </html>

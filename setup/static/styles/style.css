@@ -42,7 +42,7 @@ header {
 }
 
 .header-logo a {
-    text-decoration: none;
+    text-decoration: none;  
     color: var(--black);
 }
 
@@ -59,8 +59,9 @@ header {
     text-decoration: none;
     font-size: 14pt;
     font-weight: bold;
-    background-color: var(--orange);
+    background-color: var(--light-green);
     border-radius: 65px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .user-authentication a:first-child {
