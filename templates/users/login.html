@@ -1,21 +1,28 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/forms.css' %}">
     <title>Login</title>
 </head>
 <body>
-    <form action="{% url 'login' %}" method="POST">
-        {% csrf_token %}
-        {% for field in form.visible_fields %}
-        <div>
-            <label for="{{ field.id_or_label }}">{{ field.label }}</label><BR>
-            {{ field }}
-        </div>
-        {% endfor %}
-        <button type="submit">Enviar</button>
-    </form>
-    <p>Ainda não possui conta? Faça o <a href="{% url 'signup' %}">Cadastro</a></p>
+    <div class="form-container">
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            {% for field in form.visible_fields %}
+            <div>
+                <label for="{{ field.id_or_label }}">{{ field.label }}</label><BR>
+                {{ field }}
+            </div>
+            {% endfor %}
+            <div class="btn-submit-container">
+                <button type="submit">Entrar</button>
+            </div>
+        </form>
+        <p>Ainda não possui uma conta? Faça o <a href="{% url 'signup' %}">Cadastro</a>.</p>
+    </div>
 </body>
 </html>
