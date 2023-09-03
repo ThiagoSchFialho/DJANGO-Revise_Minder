@@ -12,7 +12,7 @@ class LoginForm(forms.Form):
         )
     )
 
-    login_password = forms.CharField(
+    password = forms.CharField(
         label="Senha",
         required=True,
         widget = forms.PasswordInput(
@@ -34,7 +34,7 @@ class SignUpForm(forms.Form):
         )
     )
 
-    sign_up_password_1 = forms.CharField(
+    password_1 = forms.CharField(
         label="Senha",
         required=True,
         widget = forms.PasswordInput(
@@ -44,7 +44,7 @@ class SignUpForm(forms.Form):
         )
     )
 
-    sign_up_password_2 = forms.CharField(
+    password_2 = forms.CharField(
         label="Confirme a Senha",
         required=True,
         widget = forms.PasswordInput(
