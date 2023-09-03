@@ -11,11 +11,12 @@
 
 .subject-main-content-container h2 {
     text-align: center;
+    color: var(--dark-green);
 }
 
 .subject-main-content-container hr {
     margin-bottom: 50px;
-    border: 1px solid var(--black);
+    border: 1px solid var(--dark-green);
 }
 
 .subject-form-explanation-container {
@@ -36,7 +37,7 @@
 .subject-form-container label {
     font-weight: 500;
     font-size: 14pt;
-    color: var(--super-dark-green);
+    color: var(--dark-green);
 }
 
 .subject-form-input {
@@ -46,7 +47,7 @@
     font-size: 12pt;
     outline: none;
     border-radius: 5px;
-    border: 1px solid var(--super-dark-green);
+    border: 1px solid var(--dark-green);
 }
 
 .subject-btn-submit-container {
@@ -76,18 +77,68 @@
     padding-left: 40px;
     font-size: 14pt;
     font-weight: 500;
-    color: var(--super-dark-green);
+    color: var(--dark-green);
     text-align: center;
 }
 
 .my-subjects h2{
-    margin-bottom: 20px;
+    margin-bottom: 35px;
     text-align: left;
     text-decoration: underline;
+    color: var(--dark-green);
 }
 
 .my-subjects ul{
     list-style: none;
+}
+
+.subject {
+    display: flex;
+    align-items: center;
+    height: 75px;
+    margin-bottom: 45px;
+    padding-left: 20px;
+    border-radius: 5px;
+    border: 2px solid var(--green);
+    background-color: var(--light-green);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.subject p {
+    width: 85%;
+    font-weight: 500;
+    font-size: 14pt;
+    color: var(--dark-green);
+}
+
+.subject-color {
+    width: 15%;
+    height: 100%;
+    margin-left: 20px;
+    border-left: 2px solid var(--green);
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.subject-color .commands {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subject-color .commands p {
+    text-align: center;
+    color: var(--black);
+    font-weight: bold;
+    font-size: 16pt;
+    cursor: pointer;
+}
+
+.subject-color .commands a {
+    text-decoration: none;
+    color: var(--black);
 }
 
 @media screen and (max-width: 1366px) {

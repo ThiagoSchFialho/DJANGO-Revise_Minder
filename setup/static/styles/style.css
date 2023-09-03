@@ -6,8 +6,7 @@
     --dark-grey: #2A2D34;
     --blue: #3483FA;
     --white: #FFF9F5;
-    --dark-green: #264653;
-    --super-dark-green: #213C47;
+    --dark-green: #213C47;
     --green: #2a9d8f;
     --light-green: #E8FCCF;
     --yellow: #e9c46a;
@@ -23,4 +22,32 @@
 
 body {
     background-color: #FFFFFF;
+}
+
+.red {
+    background-color: #CC2936;
+}
+
+.orange {
+    background-color: #F4743B;
+}
+
+.yellow {
+    background-color: #e9c46a;
+}
+
+.green {
+    background-color: #2a9d8f;
+}
+
+.blue {
+    background-color: #3483FA;
+}
+
+.purple {
+    background-color: #9448BC;
+}
+
+.white {
+    background-color: #FFF9F5;
 }

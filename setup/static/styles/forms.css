@@ -16,7 +16,7 @@ form {
 label {
     font-weight: 500;
     font-size: 14pt;
-    color: var(--super-dark-green);
+    color: var(--dark-green);
 }
 
 .user-form-input {
@@ -26,7 +26,7 @@ label {
     font-size: 12pt;
     outline: none;
     border-radius: 5px;
-    border: 1px solid var(--super-dark-green);
+    border: 1px solid var(--dark-green);
 }
 
 .terms-input-container {

@@ -32,7 +32,22 @@
             <div class="my-subjects">
                 <h2>Meus assuntos:</h2>
                 <ul>
-                    <li></li>
+                    {% if subjects %}
+                    {% for subject in subjects %}
+                        <li>
+                            <div class="subject">
+                                <p>{{ subject.description }}</p>
+                                <div class="subject-color {{ subject.color }}">
+                                    <div class="commands">
+                                        <p><a href="{% url 'subject' %}">Excluir</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                    {% else %}
+                        <h3>(Não há assuntos ainda.)</h3>
+                    {% endif %}
                 </ul>
             </div>
 

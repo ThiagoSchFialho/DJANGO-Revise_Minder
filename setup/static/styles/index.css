@@ -34,7 +34,7 @@
 }
 
 .presentation {
-    color: var(--super-dark-green);
+    color: var(--dark-green);
 }
 
 .presentation-title {
@@ -111,7 +111,7 @@
     margin-bottom: 30px;
     padding: 10px;
     background-color: var(--light-green);
-    border: 2px solid var(--super-dark-green);
+    border: 2px solid var(--dark-green);
     border-radius: 5px;
 }
 
