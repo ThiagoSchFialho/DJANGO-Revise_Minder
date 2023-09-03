@@ -1,3 +1,4 @@
 from django.contrib import admin
+from apps.revise_minder.models import Subject
 
-# Register your models here.
+admin.site.register(Subject)
