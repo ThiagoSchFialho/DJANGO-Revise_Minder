@@ -1,11 +1,21 @@
 <div class="side-menu">
-    <a href="#" class="add-study-btn-anchor">
+    <a href="{% url 'add_study' %}" class="add-study-btn-anchor">
         <div class="add-study-btn">
             <h2>+ Estudo</h2>
         </div>
     </a>
     <nav>
         <ul class="side-menu-list">
+            <li>
+                <a href="{% url 'revisions_home' %}">
+                    <p>Inicio</p>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'my_studies' %}">
+                    <p>Meus Estudos</p>
+                </a>
+            </li>
             <li>
                 <a href="#">
                     <svg width="35" height="35" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">

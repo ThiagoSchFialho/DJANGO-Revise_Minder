@@ -1,0 +1,99 @@
+.form-list-main-container {
+    display: flex;
+}
+
+.form-list-main-content-container {
+    padding: 40px 300px;
+    width: calc(100% - 310px);
+    min-height: calc(100vh - 100px);
+    height: fit-content;
+}
+
+.form-list-main-content-container h2 {
+    text-align: center;
+    color: var(--dark-green);
+}
+
+.form-list-main-content-container hr {
+    margin-bottom: 50px;
+    border: 1px solid var(--dark-green);
+}
+
+.form-list-form-explanation-container {
+    display: flex;
+    margin: 30px 0px 50px 0px;
+    padding: 40px;
+    background-color: var(--light-green);
+    border-radius: 30px;
+    border: 3px solid var(--green);
+}
+
+.form-list-form-container {
+    width: 60%;
+    background-color: var(--light-green);
+    border-right: 1px solid var(--green);
+}
+
+.form-list-form-container label {
+    font-weight: 500;
+    font-size: 14pt;
+    color: var(--dark-green);
+}
+
+.form-list-input {
+    width: calc(100% - 40px);
+    margin-bottom: 20px;
+    padding: 7px 14px;
+    font-size: 12pt;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid var(--dark-green);
+}
+
+.form-list-btn-submit-container {
+    width: calc(50% - 20px);
+    margin-top: 20px;
+}
+
+.form-list-btn-submit-container button {
+    width: 100%;
+    padding: 5px 20px;
+    color: var(--white);
+    font-size: 16pt;
+    font-weight: 500;
+    border-radius: 10px;
+    border: none;
+    transform: translateX(50%);
+    background-color: var(--orange);
+    text-shadow: 1px 1px 5px #ad5029, -1px -1px 5px #ad5029;
+    cursor: pointer;
+}
+
+.explanation {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 40px;
+    font-size: 14pt;
+    font-weight: 500;
+    color: var(--dark-green);
+    text-align: center;
+}
+
+.list-container h2{
+    margin-bottom: 35px;
+    text-align: left;
+    text-decoration: underline;
+    color: var(--dark-green);
+}
+
+.list-container ul{
+    list-style: none;
+}
+
+@media screen and (max-width: 1366px) {
+    .form-list-main-content-container {
+        padding: 40px 100px;
+    }
+}

@@ -1,0 +1,35 @@
+{% extends 'revise_minder/base.html' %}
+{% block content %}
+{% include 'revise_minder/partials/_header.html' %}
+    <main class="form-list-main-container">
+        {% include 'revise_minder/partials/_side-menu.html' %}
+        <div class="form-list-main-content-container">
+            
+            <div class="list-container">
+                <h2>Meus Estudos:</h2>
+                <ul>
+                    {% if studies %}
+                        {% for study in studies %}
+                            <li>
+                                <div class="study">
+                                    <div class="study-subject-description">
+                                        <p>{{ study.subject.description }}</p>
+                                    </div>
+                                    <div class="study-revision-cycles">
+                                        <p>{{ study.revisions_cycles }} Revições</p>
+                                    </div>
+                                    <div class="study-date">
+                                        <p>{{ study.date.day }}/{{ study.date.month }}/{{ study.date.year }}</p>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                        <h3>(Não há Estudos ainda.)</h3>
+                    {% endif %}
+                </ul>
+            </div>
+
+        </div>
+    </main>
+{% endblock %}

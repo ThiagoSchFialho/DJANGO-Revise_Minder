@@ -1,0 +1,31 @@
+{% extends 'revise_minder/base.html' %}
+{% block content %}
+{% include 'revise_minder/partials/_header.html' %}
+    <main class="form-list-main-container">
+        {% include 'revise_minder/partials/_side-menu.html' %}
+        <div class="form-list-main-content-container">
+            <h2>Adicionar Estudo</h2>
+
+            <div class="form-list-form-explanation-container">
+                <div class="form-list-form-container">
+                    <form action="{% url 'add_study' %}" method="POST">
+                        {% csrf_token %}
+                
+                        {% for field in form.visible_fields %}
+                        <div>
+                            <label for="{{ field.id_or_label }}">{{ field.label }}</label><BR>
+                            {{ field }}
+                        </div>
+                        {% endfor %}
+                        <div class="form-list-btn-submit-container">
+                            <button type="submit">Adicionar</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="explanation">
+                    <p>Adicione estudos para que as revisões possam ser calculadas.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

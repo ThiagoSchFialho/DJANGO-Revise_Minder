@@ -1,13 +1,13 @@
 {% extends 'revise_minder/base.html' %}
 {% block content %}
 {% include 'revise_minder/partials/_header.html' %}
-    <main class="subject-main-container">
+    <main class="form-list-main-container">
         {% include 'revise_minder/partials/_side-menu.html' %}
-        <div class="subject-main-content-container">
+        <div class="form-list-main-content-container">
             <h2>Criar um novo Assunto</h2>
 
-            <div class="subject-form-explanation-container">
-                <div class="subject-form-container">
+            <div class="form-list-form-explanation-container">
+                <div class="form-list-form-container">
                     <form action="{% url 'subject' %}" method="POST">
                         {% csrf_token %}
                 
@@ -17,7 +17,7 @@
                             {{ field }}
                         </div>
                         {% endfor %}
-                        <div class="subject-btn-submit-container">
+                        <div class="form-list-btn-submit-container">
                             <button type="submit">Criar</button>
                         </div>
                     </form>
@@ -29,7 +29,7 @@
 
             <hr>
 
-            <div class="my-subjects">
+            <div class="list-container">
                 <h2>Meus assuntos:</h2>
                 <ul>
                     {% if subjects %}
@@ -39,7 +39,7 @@
                                 <p>{{ subject.description }}</p>
                                 <div class="subject-color {{ subject.color }}">
                                     <div class="commands">
-                                        <p><a href="{% url 'subject' %}">Excluir</a></p>
+                                        <p><a href="{% url 'subject' %}">Editar</a></p>
                                     </div>
                                 </div>
                             </div>
