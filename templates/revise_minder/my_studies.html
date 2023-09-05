@@ -13,14 +13,22 @@
                             <li>
                                 <div class="study">
                                     <div class="study-subject-description">
-                                        <p>{{ study.subject.description }}</p>
+                                        {% if study.subject %}
+                                            <p>{{ study.subject.description }}</p>
+                                        {% else %}
+                                            <p>(Sem assunto) Edite para adicionar um assunto.</p>
+                                        {% endif %}
                                     </div>
                                     <div class="study-revision-cycles">
-                                        <p>{{ study.revisions_cycles }} Revições</p>
+                                        <p>{{ study.revisions_cycles }} Revisões</p>
                                     </div>
                                     <div class="study-date">
                                         <p>{{ study.date.day }}/{{ study.date.month }}/{{ study.date.year }}</p>
                                     </div>
+                                </div>
+                                <div class="study-commands">
+                                    <a href="{% url 'edit_study' study.id %}" class="azul">Editar</a>
+                                    <a href="{% url 'delete_study' study.id %}" class="vermelho">Excluir</a>
                                 </div>
                             </li>
                         {% endfor %}
@@ -29,7 +37,6 @@
                     {% endif %}
                 </ul>
             </div>
-
         </div>
     </main>
 {% endblock %}

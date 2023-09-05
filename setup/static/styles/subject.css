@@ -2,9 +2,9 @@
     display: flex;
     align-items: center;
     height: 75px;
-    margin-bottom: 45px;
     padding-left: 20px;
-    border-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     border: 2px solid var(--green);
     background-color: var(--light-green);
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
@@ -23,7 +23,6 @@
     margin-left: 20px;
     border-left: 2px solid var(--green);
     border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
 }
 
 .subject-color .commands {
@@ -45,4 +44,25 @@
 .subject-color .commands a {
     text-decoration: none;
     color: var(--black);
+}
+
+.subject-commands {
+    padding: 10px 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 2px solid var(--green);
+    border-top: none;
+    background-color: var(--light-green);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 45px;
+}
+
+.subject-commands a {
+    padding: 3px 6px;
+    margin-right: 15px;
+    color: var(--black);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14pt;
+    border-radius: 5px;
 }

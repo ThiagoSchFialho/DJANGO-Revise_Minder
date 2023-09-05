@@ -21,9 +21,9 @@ class StudyForm(forms.ModelForm):
         exclude = ['is_done']
         labels = {
             'subject': 'Assunto',
-            'revisions_cycles': 'Número de Revições',
+            'revisions_cycles': 'Número de Revisões',
             'date': 'Data do Estudo',
-            'user': 'Usuáiro'
+            'user': 'Usuário'
         }
         widgets = {
             'subject': forms.Select(attrs={'class':'form-list-input'}),

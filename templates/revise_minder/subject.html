@@ -38,10 +38,11 @@
                             <div class="subject">
                                 <p>{{ subject.description }}</p>
                                 <div class="subject-color {{ subject.color }}">
-                                    <div class="commands">
-                                        <p><a href="{% url 'subject' %}">Editar</a></p>
-                                    </div>
                                 </div>
+                            </div>
+                            <div class="subject-commands">
+                                <a href="{% url 'edit_subject' subject.id %}" class="azul">Editar</a>
+                                <a href="{% url 'delete_subject' subject.id %}" class="vermelho">Excluir</a>
                             </div>
                         </li>
                     {% endfor %}
