@@ -53,3 +53,8 @@ def signup(request):
             return redirect("login")
 
     return render(request, 'users/signup.html', {"form": form});
+
+def logout(request):
+    auth.logout(request)
+
+    return redirect("login")

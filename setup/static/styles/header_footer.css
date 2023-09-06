@@ -19,13 +19,6 @@ header {
     color: var(--black);
 }
 
-.header-user-menu {
-    width: 60px;
-    height: 60px;
-    background-color: var(--black);
-    border-radius: 50%;
-}
-
 .user-authentication a{
     color: var(--black);
     padding: 5px 15px;

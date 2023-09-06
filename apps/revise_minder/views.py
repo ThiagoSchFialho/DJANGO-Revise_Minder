@@ -6,23 +6,35 @@ def index(request):
     return render(request, 'revise_minder/index.html')
 
 def revisions_home(request):
-    return render(request, 'revise_minder/revisions_home.html')
+    if not request.user.is_authenticated:
+        return redirect('login')
+    
+    user_first_letter = request.user.username[0]
+    
+    return render(request, 'revise_minder/revisions_home.html', {'user_n':user_first_letter})
 
 def subject(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    
     form = SubjectForm()
-
-    subjects = Subject.objects.all()
+    subjects = Subject.objects.filter(user=request.user)
 
     if request.method == 'POST':
         form = SubjectForm(request.POST)
 
         if form.is_valid():
-            form.save()
+            subject = form.save(commit=False)
+            subject.user = request.user
+            subject.save()
             return redirect('subject')
 
     return render(request, "revise_minder/subject.html", {'form':form, 'subjects':subjects})
 
 def edit_subject(request, subject_id):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    
     subject = Subject.objects.get(id=subject_id)
     form = SubjectForm(instance=subject)
 
@@ -36,32 +48,46 @@ def edit_subject(request, subject_id):
     return render(request, 'revise_minder/edit_subject.html', {'form':form, 'subject_id':subject_id})
 
 def delete_subject(request, subject_id):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    
     subject = Subject.objects.get(id=subject_id)
     subject.delete()
     return redirect('subject')
 
 def add_study(request):
-    form = StudyForm()
+    if not request.user.is_authenticated:
+        return redirect('login')
+    
+    form = StudyForm(user=request.user)
     
     if request.method == 'POST':
-        form = StudyForm(request.POST)
+        form = StudyForm(request.POST, user=request.user)
 
         if form.is_valid():
-            form.save()
+            study = form.save(commit=False)
+            study.user = request.user
+            study.save()
             return redirect('my_studies')
         
     return render(request, 'revise_minder/add_study.html', {'form':form})
 
 def my_studies(request):
-    studies = Study.objects.all()
+    if not request.user.is_authenticated:
+        return redirect('login')
+    
+    studies = Study.objects.filter(user=request.user)
     return render(request, 'revise_minder/my_studies.html', {'studies':studies})
 
 def edit_study(request, study_id):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    
     study = Study.objects.get(id=study_id)
-    form = StudyForm(instance=study)
+    form = StudyForm(instance=study, user=request.user)
 
     if request.method == "POST":
-        form = StudyForm(request.POST, instance=study)
+        form = StudyForm(request.POST, instance=study, user=request.user)
 
         if form.is_valid():
             form.save()
@@ -70,6 +96,9 @@ def edit_study(request, study_id):
     return render(request, 'revise_minder/edit_study.html', {'form':form, 'study_id':study_id})
 
 def delete_study(request, study_id):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    
     study = Study.objects.get(id=study_id)
     study.delete()
     return redirect('my_studies')

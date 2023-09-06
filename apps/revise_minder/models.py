@@ -17,6 +17,13 @@ class Subject(models.Model):
 
     description = models.CharField(max_length=130, null=False, blank=False)
     color = models.CharField(max_length=100, choices=COLOR_OPTIONS, default='')
+    user = models.ForeignKey(
+        to=User,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=False,
+        related_name="user_subject"
+    )
 
     def __str__(self):
         return f"{self.description}, {self.color}"
@@ -44,7 +51,7 @@ class Study(models.Model):
         on_delete=models.SET_NULL,
         null=True,
         blank=False,
-        related_name="User"
+        related_name="user_study"
     )
 
     def __str__(self):
