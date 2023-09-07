@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
+from django.db.models import Q
+from datetime import date
+
 from apps.revise_minder.forms import SubjectForm, StudyForm
-from apps.revise_minder.models import Subject, Study
+from apps.revise_minder.models import Subject, Study, Revision
 
 def index(request):
     return render(request, 'revise_minder/index.html')
@@ -9,9 +12,13 @@ def revisions_home(request):
     if not request.user.is_authenticated:
         return redirect('login')
     
-    user_first_letter = request.user.username[0]
+    today_date = date.today()
+
+    revisions_today = Revision.objects.filter(
+        Q(date_plus_1_day=today_date) | Q(date_plus_1_week=today_date) | Q(date_plus_1_month=today_date)
+    )
     
-    return render(request, 'revise_minder/revisions_home.html', {'user_n':user_first_letter})
+    return render(request, 'revise_minder/revisions_home.html', {'revisions_today':revisions_today})
 
 def subject(request):
     if not request.user.is_authenticated:
@@ -67,7 +74,12 @@ def add_study(request):
         if form.is_valid():
             study = form.save(commit=False)
             study.user = request.user
+
+            revision = Revision(study=study, date=study.date)
+
             study.save()
+            revision.save()
+
             return redirect('my_studies')
         
     return render(request, 'revise_minder/add_study.html', {'form':form})
@@ -90,7 +102,12 @@ def edit_study(request, study_id):
         form = StudyForm(request.POST, instance=study, user=request.user)
 
         if form.is_valid():
+            revision = Revision.objects.get(study=study)
+            revision.date = study.date
+
             form.save()
+            revision.save()
+
             return redirect('my_studies')
 
     return render(request, 'revise_minder/edit_study.html', {'form':form, 'study_id':study_id})

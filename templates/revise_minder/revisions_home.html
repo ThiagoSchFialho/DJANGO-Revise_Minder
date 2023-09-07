@@ -8,32 +8,21 @@
                 <h3 class="revisions-list-title">Revisões para hoje</h3>
                 <ul>
 
+                    {% if revisions_today %}
+                    {% for revision in revisions_today %}
                     <li class="revision-list-item">
                         <div class="revision-subject-info">
-                            <div class="revision-subject-icon azul"></div>
+                            <div class="revision-subject-icon {{ revision.study.subject.color }}"></div>
                             <div class="revision-subject-name">
-                                <p>(Descrição do assunto da revisão)</p>
+                                <p>{{ revision.study.subject.description }}</p>
                             </div>
                         </div>
-                        <div class="revision-date">12/12/2023</div>
+                        <div class="revision-date">Hoje</div>
                     </li>
-
-                </ul>
-            </div>
-            <hr>
-            <div class="future-revisions">
-                <h3 class="revisions-list-title">Revisões futuras</h3>
-                <ul>
-                    
-                    <li class="revision-list-item">
-                        <div class="revision-subject-info">
-                            <div class="revision-subject-icon azul"></div>
-                            <div class="revision-subject-name">
-                                <p>(Descrição do assunto da revisão)</p>
-                            </div>
-                        </div>
-                        <div class="revision-date">12/12/2023</div>
-                    </li>
+                    {% endfor %}
+                    {% else %}
+                        <p>(Nenhuma revisão a ser feita.)</p>
+                    {% endif %}
 
                 </ul>
             </div>
