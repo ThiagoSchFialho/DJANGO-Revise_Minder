@@ -70,9 +70,20 @@ class Revision(models.Model):
     
     def save(self, *args, **kwargs):
         if self.date:
-            self.date_plus_1_day = self.date + timedelta(days=1)
-            self.date_plus_1_week = self.date + timedelta(weeks=1)
-            self.date_plus_1_month = self.date + timedelta(days=30)
+            if self.study.revisions_cycles == 3:
+                self.date_plus_1_day = self.date + timedelta(days=1)
+                self.date_plus_1_week = self.date + timedelta(weeks=1)
+                self.date_plus_1_month = self.date + timedelta(days=30)
+
+            if self.study.revisions_cycles == 2:
+                self.date_plus_1_day = self.date + timedelta(days=1)
+                self.date_plus_1_week = self.date + timedelta(weeks=1)
+                self.date_plus_1_month = None
+                
+            if self.study.revisions_cycles == 1:
+                self.date_plus_1_day = self.date + timedelta(days=1)
+                self.date_plus_1_week = None
+                self.date_plus_1_month = None
 
             super().save(*args, **kwargs)
 
