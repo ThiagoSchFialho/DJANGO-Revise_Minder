@@ -5,6 +5,11 @@ from datetime import date
 from apps.revise_minder.forms import SubjectForm, StudyForm
 from apps.revise_minder.models import Subject, Study, Revision
 
+class Revision_info:
+    def __init__(self, revision, date):
+        self.revision = revision
+        self.date = date
+
 def index(request):
     return render(request, 'revise_minder/index.html')
 
@@ -19,6 +24,44 @@ def revisions_home(request):
     )
     
     return render(request, 'revise_minder/revisions_home.html', {'revisions_today':revisions_today})
+
+def past_revisions(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    
+    revisions = Revision.objects.all()
+    past_revisions = []
+
+    for revision in revisions:
+        if revision.study.revisions_cycles == 3:
+            if revision.date_plus_1_day < date.today():
+                revision_info = Revision_info(revision, revision.date_plus_1_day)
+                past_revisions.append(revision_info)
+
+            if revision.date_plus_1_week < date.today():
+                revision_info = Revision_info(revision, revision.date_plus_1_week)
+                past_revisions.append(revision_info)
+
+            if revision.date_plus_1_month < date.today():
+                revision_info = Revision_info(revision, revision.date_plus_1_month)
+                past_revisions.append(revision_info)
+        
+        elif revision.study.revisions_cycles == 2:
+            if revision.date_plus_1_day < date.today():
+                revision_info = Revision_info(revision, revision.date_plus_1_day)
+                past_revisions.append(revision_info)
+
+            if revision.date_plus_1_week < date.today():
+                revision_info = Revision_info(revision, revision.date_plus_1_week)
+                past_revisions.append(revision_info)
+
+        else:
+            if revision.date_plus_1_day < date.today():
+                revision_info = Revision_info(revision, revision.date_plus_1_day)
+                past_revisions.append(revision_info)
+
+    return render(request, 'revise_minder/past_revisions.html', {'past_revisions':past_revisions})
+
 
 def subject(request):
     if not request.user.is_authenticated:
