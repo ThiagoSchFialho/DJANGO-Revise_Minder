@@ -17,7 +17,7 @@
                                 <p>{{ revision.revision.study.subject.description }}</p>
                             </div>
                         </div>
-                        <div class="revision-date">{{ revision.date }}</div>
+                        <div class="revision-date">{{revision.date.day}}/{{revision.date.month}}/{{revision.date.year}}</div>
                     </li>
                     {% endfor %}
                     {% else %}

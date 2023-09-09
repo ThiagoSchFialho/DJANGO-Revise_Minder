@@ -60,6 +60,8 @@ def past_revisions(request):
                 revision_info = Revision_info(revision, revision.date_plus_1_day)
                 past_revisions.append(revision_info)
 
+        past_revisions.sort(key=lambda x:x.date)
+
     return render(request, 'revise_minder/past_revisions.html', {'past_revisions':past_revisions})
 
 
