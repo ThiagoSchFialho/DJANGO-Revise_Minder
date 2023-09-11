@@ -27,34 +27,22 @@ def revisions_home(request):
     next_revisions = []
 
     for revision in revisions:
-        if revision.study.revisions_cycles == 3:
+        if revision.study.revisions_cycles >= 1:
             if revision.date_plus_1_day > date.today():
                 revision_info = Revision_info(revision, revision.date_plus_1_day)
                 next_revisions.append(revision_info)
-
+        
+        if revision.study.revisions_cycles >= 2:
             if revision.date_plus_1_week > date.today():
                 revision_info = Revision_info(revision, revision.date_plus_1_week)
                 next_revisions.append(revision_info)
 
+        if revision.study.revisions_cycles == 3:
             if revision.date_plus_1_month > date.today():
                 revision_info = Revision_info(revision, revision.date_plus_1_month)
                 next_revisions.append(revision_info)
-        
-        elif revision.study.revisions_cycles == 2:
-            if revision.date_plus_1_day > date.today():
-                revision_info = Revision_info(revision, revision.date_plus_1_day)
-                next_revisions.append(revision_info)
 
-            if revision.date_plus_1_week > date.today():
-                revision_info = Revision_info(revision, revision.date_plus_1_week)
-                next_revisions.append(revision_info)
-
-        else:
-            if revision.date_plus_1_day > date.today():
-                revision_info = Revision_info(revision, revision.date_plus_1_day)
-                next_revisions.append(revision_info)
-
-        next_revisions.sort(key=lambda x:x.date)
+    next_revisions.sort(key=lambda x:x.date)
     
     return render(request, 'revise_minder/revisions_home.html', {'revisions_today':revisions_today, 'next_revisions':next_revisions})
 
@@ -66,34 +54,22 @@ def past_revisions(request):
     past_revisions = []
 
     for revision in revisions:
-        if revision.study.revisions_cycles == 3:
+        if revision.study.revisions_cycles >= 1:
             if revision.date_plus_1_day < date.today():
                 revision_info = Revision_info(revision, revision.date_plus_1_day)
                 past_revisions.append(revision_info)
-
+        
+        if revision.study.revisions_cycles >= 2:
             if revision.date_plus_1_week < date.today():
                 revision_info = Revision_info(revision, revision.date_plus_1_week)
                 past_revisions.append(revision_info)
 
+        if revision.study.revisions_cycles == 3:
             if revision.date_plus_1_month < date.today():
                 revision_info = Revision_info(revision, revision.date_plus_1_month)
                 past_revisions.append(revision_info)
-        
-        elif revision.study.revisions_cycles == 2:
-            if revision.date_plus_1_day < date.today():
-                revision_info = Revision_info(revision, revision.date_plus_1_day)
-                past_revisions.append(revision_info)
 
-            if revision.date_plus_1_week < date.today():
-                revision_info = Revision_info(revision, revision.date_plus_1_week)
-                past_revisions.append(revision_info)
-
-        else:
-            if revision.date_plus_1_day < date.today():
-                revision_info = Revision_info(revision, revision.date_plus_1_day)
-                past_revisions.append(revision_info)
-
-        past_revisions.sort(key=lambda x:x.date)
+    past_revisions.sort(key=lambda x:x.date)
 
     return render(request, 'revise_minder/past_revisions.html', {'past_revisions':past_revisions})
 
