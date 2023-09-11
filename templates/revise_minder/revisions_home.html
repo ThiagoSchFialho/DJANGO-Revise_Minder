@@ -4,8 +4,8 @@
     <main class="revisions-home-main-container">
         {% include 'revise_minder/partials/_side-menu.html' %}
         <div class="revisions-home-main-content-container">
-            <div class="today-revisions">
-                <h3 class="revisions-list-title">Revisões para hoje</h3>
+            <div class="revisions">
+                <h2 class="revisions-list-title">Revisões para hoje</h2>
                 <ul>
 
                     {% if revisions_today %}
@@ -21,7 +21,7 @@
                     </li>
                     {% endfor %}
                     {% else %}
-                        <p>(Nenhuma revisão a ser feita.)</p>
+                        <h3>(Nenhuma revisão a ser feita.)</h3>
                     {% endif %}
 
                 </ul>
