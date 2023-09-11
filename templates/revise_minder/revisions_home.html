@@ -14,7 +14,11 @@
                             <div class="revision-subject-info">
                                 <div class="revision-subject-icon {{ revision.study.subject.color }}"></div>
                                 <div class="revision-subject-name">
-                                    <p>{{ revision.study.subject.description }}</p>
+                                    {% if revision.study.subject %}
+                                        <p>{{ revision.study.subject.description }}</p>
+                                    {% else %}
+                                        <p>(Sem assunto) Edite o estudo para adicionar um assunto.</p>
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="revision-date">Hoje</div>
@@ -37,7 +41,11 @@
                             <div class="revision-subject-info">
                                 <div class="revision-subject-icon {{ revision.revision.study.subject.color }}"></div>
                                 <div class="revision-subject-name">
-                                    <p>{{ revision.revision.study.subject.description }}</p>
+                                    {% if revision.revision.study.subject %}
+                                        <p>{{ revision.revision.study.subject.description }}</p>
+                                    {% else %}
+                                        <p>(Sem assunto) Edite o estudo para adicionar um assunto.</p>
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="revision-date">{{revision.date.day}}/{{revision.date.month}}/{{revision.date.year}}</dv>
