@@ -22,6 +22,14 @@
     height: fit-content;
 }
 
+.revisions hr {
+    border: 1px solid var(--dark-green);
+    margin-top: 60px;
+    margin-bottom: 70px;
+    width: 106%;
+    transform: translateX(-3%);
+}
+
 .revisions-list-title {
     margin-bottom: 35px;
     text-align: left;
