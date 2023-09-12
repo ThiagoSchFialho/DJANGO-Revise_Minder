@@ -7,23 +7,23 @@
             <div class="revisions">
                 <h2 class="revisions-list-title">Revisões passadas</h2>
                 <ul>
-
                     {% if past_revisions %}
                     {% for revision in past_revisions %}
-                    <li class="revision-list-item">
-                        <div class="revision-subject-info">
-                            <div class="revision-subject-icon {{ revision.revision.study.subject.color }}"></div>
-                            <div class="revision-subject-name">
-                                <p>{{ revision.revision.study.subject.description }}</p>
+                        <li>
+                            <div class="revision-list-item">
+                                <div class="revision-subject-info">
+                                    <div class="revision-subject-icon {{ revision.revision.study.subject.color }}"></div>
+                                    <div class="revision-subject-name">
+                                        <p>{{ revision.revision.study.subject.description }}</p>
+                                    </div>
+                                </div>
+                                <div class="revision-date">{{revision.date.day}}/{{revision.date.month}}/{{revision.date.year}}</div>
                             </div>
-                        </div>
-                        <div class="revision-date">{{revision.date.day}}/{{revision.date.month}}/{{revision.date.year}}</div>
-                    </li>
+                        </li>
                     {% endfor %}
                     {% else %}
                         <h3>(Nenhuma revisão passada.)</h3>
                     {% endif %}
-
                 </ul>
             </div>
         </div>

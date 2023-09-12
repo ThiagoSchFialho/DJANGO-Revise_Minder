@@ -38,7 +38,23 @@
     font-size: 19pt;
 }
 
+.revisions li {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 30px;
+    margin-right: 20px;
+    transform: translate(-56px, -15px);
+}
+
 .revision-list-item {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;

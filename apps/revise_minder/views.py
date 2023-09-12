@@ -43,8 +43,23 @@ def revisions_home(request):
                 next_revisions.append(revision_info)
 
     next_revisions.sort(key=lambda x:x.date)
+
+    done_revisions = revisions_today.filter(is_done=True)
+
+    revisions_today = revisions_today.filter(is_done=False)
     
-    return render(request, 'revise_minder/revisions_home.html', {'revisions_today':revisions_today, 'next_revisions':next_revisions})
+    return render(request, 'revise_minder/revisions_home.html', {'revisions_today':revisions_today, 'next_revisions':next_revisions, 'done_revisions':done_revisions})
+
+def revision_done(request, revision_id):
+    revision = Revision.objects.get(id=revision_id)
+
+    if revision.is_done:
+        revision.is_done = False
+    else:
+        revision.is_done = True
+
+    revision.save()
+    return redirect(revisions_home)
 
 def past_revisions(request):
     if not request.user.is_authenticated:
