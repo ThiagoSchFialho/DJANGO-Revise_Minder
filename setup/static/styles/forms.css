@@ -1,7 +1,7 @@
 .form-container {
     height: 100vh;
     padding-top: 8%;
-    background-color: var(--dark-green);
+    background-color: var(--dark-color);
 }
 
 form {
@@ -9,14 +9,14 @@ form {
     padding: 60px 100px 20px 100px;
     margin: 0 auto;
     border-radius: 30px;
-    background-color: var(--light-green);
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    background-color: var(--light-color);
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.8);
 }
 
 label {
     font-weight: 500;
     font-size: 14pt;
-    color: var(--dark-green);
+    color: var(--dark-color);
 }
 
 .user-form-input {
@@ -26,7 +26,7 @@ label {
     font-size: 12pt;
     outline: none;
     border-radius: 5px;
-    border: 1px solid var(--dark-green);
+    border: 1px solid var(--dark-color);
 }
 
 .terms-input-container {
@@ -55,8 +55,8 @@ button {
     font-weight: 500;
     border-radius: 10px;
     border: none;
-    background-color: var(--orange);
-    text-shadow: 1px 1px 5px #ad5029, -1px -1px 5px #ad5029;
+    background-color: var(--btn-color);
+    text-shadow: 1px 1px 5px #19768d, -1px -1px 5px #19768d;
     cursor: pointer;
 }
 
@@ -68,7 +68,7 @@ p {
 }
 
 a {
-    color: var(--orange);
+    color: var(--btn-color);
 }
 
 @media screen and (max-width: 1366px) {

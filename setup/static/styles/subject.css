@@ -5,8 +5,8 @@
     padding-left: 20px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    border: 2px solid var(--green);
-    background-color: var(--light-green);
+    border: 2px solid var(--primary-color);
+    background-color: var(--light-color);
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -14,14 +14,14 @@
     width: 85%;
     font-weight: 500;
     font-size: 14pt;
-    color: var(--dark-green);
+    color: var(--dark-color);
 }
 
 .subject-color {
     width: 15%;
     height: 100%;
     margin-left: 20px;
-    border-left: 2px solid var(--green);
+    border-left: 2px solid var(--primary-color);
     border-top-right-radius: 3px;
 }
 
@@ -50,9 +50,9 @@
     padding: 10px 20px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    border: 2px solid var(--green);
+    border: 2px solid var(--primary-color);
     border-top: none;
-    background-color: var(--light-green);
+    background-color: var(--light-color);
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
     margin-bottom: 45px;
 }

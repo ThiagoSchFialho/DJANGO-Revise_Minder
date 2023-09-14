@@ -86,7 +86,7 @@
 }
 
 .presentation {
-    color: var(--dark-green);
+    color: var(--dark-color);
 }
 
 .presentation-title {
@@ -145,7 +145,7 @@
     padding: 15px 20px;
     font-size: 15pt;
     color: var(--white);
-    background-color: var(--dark-green);
+    background-color: var(--dark-color);
     border-radius: 5px;
 }
 
@@ -162,8 +162,8 @@
     font-weight: 600;
     margin-bottom: 30px;
     padding: 10px;
-    background-color: var(--light-green);
-    border: 2px solid var(--dark-green);
+    background-color: var(--light-color);
+    border: 2px solid var(--dark-color);
     border-radius: 5px;
 }
 
@@ -174,7 +174,7 @@
     font-size: 18pt;
     font-weight: bold;
     text-decoration: none;
-    background-color: var(--orange);
+    background-color: var(--btn-color);
     border-radius: 5px;
 }
 

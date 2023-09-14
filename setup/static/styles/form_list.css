@@ -11,33 +11,33 @@
 
 .form-list-main-content-container h2 {
     text-align: center;
-    color: var(--dark-green);
+    color: var(--dark-color);
 }
 
 .form-list-main-content-container hr {
     margin-bottom: 50px;
-    border: 1px solid var(--dark-green);
+    border: 1px solid var(--dark-color);
 }
 
 .form-list-form-explanation-container {
     display: flex;
     margin: 30px 0px 50px 0px;
     padding: 40px;
-    background-color: var(--light-green);
+    background-color: var(--light-color);
     border-radius: 30px;
-    border: 3px solid var(--green);
+    border: 3px solid var(--primary-color);
 }
 
 .form-list-form-container {
     width: 60%;
-    background-color: var(--light-green);
-    border-right: 1px solid var(--green);
+    background-color: var(--light-color);
+    border-right: 1px solid var(--primary-color);
 }
 
 .form-list-form-container label {
     font-weight: 500;
     font-size: 14pt;
-    color: var(--dark-green);
+    color: var(--dark-color);
 }
 
 .form-list-input {
@@ -47,7 +47,7 @@
     font-size: 12pt;
     outline: none;
     border-radius: 5px;
-    border: 1px solid var(--dark-green);
+    border: 1px solid var(--dark-color);
 }
 
 .form-list-btn-submit-container {
@@ -64,8 +64,8 @@
     border-radius: 10px;
     border: none;
     transform: translateX(50%);
-    background-color: var(--orange);
-    text-shadow: 1px 1px 5px #ad5029, -1px -1px 5px #ad5029;
+    background-color: var(--btn-color);
+    text-shadow: 1px 1px 5px #19768d, -1px -1px 5px #19768d;
     cursor: pointer;
 }
 
@@ -77,7 +77,7 @@
     padding-left: 40px;
     font-size: 14pt;
     font-weight: 500;
-    color: var(--dark-green);
+    color: var(--dark-color);
     text-align: center;
 }
 
@@ -85,7 +85,7 @@
     margin-bottom: 35px;
     text-align: left;
     text-decoration: underline;
-    color: var(--dark-green);
+    color: var(--dark-color);
 }
 
 .list-container ul{

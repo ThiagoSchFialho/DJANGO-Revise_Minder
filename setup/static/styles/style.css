@@ -1,17 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
 
 :root {
-    --red: #CC2936;
-    --black: #141414;
     --dark-grey: #2A2D34;
-    --blue: #3483FA;
-    --white: #FFF9F5;
-    --dark-green: #213C47;
-    --green: #2a9d8f;
-    --light-green: #E8FCCF;
     --yellow: #e9c46a;
-    --light-orange: #f4a261;
-    --orange: #F4743B;
+    --blue: #3483FA;
+    --red: #CC2936;
+
+    --black: #141414;
+    --white: #FFF9F5;
+
+    /* --primary-color: #7D70BA;
+    --dark-color: #2E1B43;
+    --light-color: #f2e7ff;
+    --btn-color: #42BFDD; */
+
+    --primary-color: #2a9d8f;
+    --dark-color: #213C47;
+    --light-color: #E8FCCF; 
+    --btn-color: #F4743B;
 }
 
 * {
