@@ -4,8 +4,8 @@
 
 .revisions-home-main-content-container {
     padding: 40px 300px;
-    width: calc(100% - 310px);
-    min-height: calc(100vh - 100px);
+    width: calc(100% - var(--side-menu-width));
+    min-height: calc(100vh - var(--header-height));
     height: fit-content;
 }
 

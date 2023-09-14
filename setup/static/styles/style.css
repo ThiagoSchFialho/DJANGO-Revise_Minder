@@ -9,15 +9,13 @@
     --black: #141414;
     --white: #FFF9F5;
 
-    /* --primary-color: #7D70BA;
-    --dark-color: #2E1B43;
-    --light-color: #f2e7ff;
-    --btn-color: #42BFDD; */
-
     --primary-color: #2a9d8f;
     --dark-color: #213C47;
     --light-color: #E8FCCF; 
     --btn-color: #F4743B;
+
+    --header-height: 90px;
+    --side-menu-width: 310px;
 }
 
 * {

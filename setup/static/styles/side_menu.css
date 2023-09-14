@@ -1,5 +1,5 @@
 .side-menu {
-    width: 310px;
+    width: var(--side-menu-width);
     height: fit-content;
     padding: 30px;
     background-color: var(--light-color);

@@ -1,6 +1,6 @@
 .banner {
     display: flex;
-    height: calc(100vh - 100px);
+    height: calc(100vh - var(--header-height));
     margin-bottom: 90px;
 }
 
