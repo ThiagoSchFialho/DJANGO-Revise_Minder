@@ -1,6 +1,7 @@
 .banner {
     display: flex;
     height: calc(100vh - 100px);
+    margin-bottom: 90px;
 }
 
 .banner-text {
@@ -28,9 +29,60 @@
 }
 
 .banner-img {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 50%;
     height: 100%;
-    background-color: var(--blue);
+    background-color: #2E1B43;
+    border-bottom-left-radius: 10px;
+}
+
+.banner-tornado {
+    position: absolute;
+    width: 405px;
+    height: 400px;
+    background-image: url(../assets/tornado_img.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    animation: rotate 35s infinite;
+    animation-timing-function: linear;
+}
+
+.banner-brain {
+    position: absolute;
+    width: 202px;
+    height: 250px;
+    background-image: url(../assets/brain_img.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.banner-icons1 {
+    position: absolute;
+    width: 380px;
+    height: 350px;
+    background-image: url(../assets/icons1_img.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    animation: rotate 20s infinite;
+    animation-timing-function: linear;
+}
+
+.banner-icons2 {
+    position: absolute;
+    width: 308px;
+    height: 353px;
+    background-image: url(../assets/icons2_img.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    animation: rotate 25s infinite;
+    animation-timing-function: linear;
 }
 
 .presentation {
@@ -149,5 +201,14 @@
         text-align: center;
         font-size: 15pt;
         font-weight: 500;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
     }
 }
