@@ -65,7 +65,7 @@
     border: none;
     transform: translateX(50%);
     background-color: var(--btn-color);
-    text-shadow: 1px 1px 5px #19768d, -1px -1px 5px #19768d;
+    text-shadow: 1px 1px 5px #ad5029, -1px -1px 5px #ad5029;
     cursor: pointer;
 }
 
