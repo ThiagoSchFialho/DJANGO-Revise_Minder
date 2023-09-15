@@ -46,3 +46,27 @@
 .side-menu li a p {
     margin-left: 10px;
 }
+
+.side-menu-icon {
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.home-icon {
+    background-image: url(../assets/home_icon.svg);
+}
+
+.atom-icon {
+    background-image: url(../assets/atom_icon.svg);
+}
+
+.studies-icon {
+    background-image: url(../assets/studies_icon.svg);
+}
+
+.past-revisions {
+    background-image: url(../assets/past_revisions_icon.svg);
+}
