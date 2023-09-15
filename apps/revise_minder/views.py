@@ -1,14 +1,25 @@
 from django.shortcuts import render, redirect
 from django.db.models import Q
-from datetime import date
+from datetime import date, timedelta
 
 from apps.revise_minder.forms import SubjectForm, StudyForm
 from apps.revise_minder.models import Subject, Study, Revision
 
-class Revision_info:
-    def __init__(self, revision, date):
-        self.revision = revision
-        self.date = date
+def calc_revisions(study):
+    plus_1_day = study.date + timedelta(days=1)
+    plus_1_week = study.date + timedelta(weeks=1)
+    plus_1_month = study.date + timedelta(days=30)
+
+    revision = Revision(study=study, date=plus_1_day)
+    revision.save()
+
+    if study.revisions_cycles >= 2:
+        revision = Revision(study=study, date=plus_1_week)
+        revision.save()
+
+    if study.revisions_cycles == 3:
+        revision = Revision(study=study, date=plus_1_month)
+        revision.save()
 
 def index(request):
     return render(request, 'revise_minder/index.html')
@@ -17,38 +28,14 @@ def revisions_home(request):
     if not request.user.is_authenticated:
         return redirect('login')
     
-    today_date = date.today()
+    date_today = date.today()
 
-    revisions_today = Revision.objects.filter(
-        Q(date_plus_1_day=today_date) | Q(date_plus_1_week=today_date) | Q(date_plus_1_month=today_date)
-    )
-
-    revisions = Revision.objects.all()
-    next_revisions = []
-
-    for revision in revisions:
-        if revision.study.revisions_cycles >= 1:
-            if revision.date_plus_1_day > date.today():
-                revision_info = Revision_info(revision, revision.date_plus_1_day)
-                next_revisions.append(revision_info)
-        
-        if revision.study.revisions_cycles >= 2:
-            if revision.date_plus_1_week > date.today():
-                revision_info = Revision_info(revision, revision.date_plus_1_week)
-                next_revisions.append(revision_info)
-
-        if revision.study.revisions_cycles == 3:
-            if revision.date_plus_1_month > date.today():
-                revision_info = Revision_info(revision, revision.date_plus_1_month)
-                next_revisions.append(revision_info)
-
-    next_revisions.sort(key=lambda x:x.date)
-
-    done_revisions = revisions_today.filter(is_done=True)
-
-    revisions_today = revisions_today.filter(is_done=False)
+    today_revisions = Revision.objects.filter(date=date_today)
+    done_revisions = today_revisions.filter(is_done=True)
+    today_revisions = today_revisions.filter(is_done=False)
+    next_revisions = Revision.objects.filter(date__gt=date_today)
     
-    return render(request, 'revise_minder/revisions_home.html', {'revisions_today':revisions_today, 'next_revisions':next_revisions, 'done_revisions':done_revisions})
+    return render(request, 'revise_minder/revisions_home.html', {'today_revisions':today_revisions, 'next_revisions':next_revisions, 'done_revisions':done_revisions})
 
 def revision_done(request, revision_id):
     revision = Revision.objects.get(id=revision_id)
@@ -65,26 +52,7 @@ def past_revisions(request):
     if not request.user.is_authenticated:
         return redirect('login')
     
-    revisions = Revision.objects.all()
-    past_revisions = []
-
-    for revision in revisions:
-        if revision.study.revisions_cycles >= 1:
-            if revision.date_plus_1_day < date.today():
-                revision_info = Revision_info(revision, revision.date_plus_1_day)
-                past_revisions.append(revision_info)
-        
-        if revision.study.revisions_cycles >= 2:
-            if revision.date_plus_1_week < date.today():
-                revision_info = Revision_info(revision, revision.date_plus_1_week)
-                past_revisions.append(revision_info)
-
-        if revision.study.revisions_cycles == 3:
-            if revision.date_plus_1_month < date.today():
-                revision_info = Revision_info(revision, revision.date_plus_1_month)
-                past_revisions.append(revision_info)
-
-    past_revisions.sort(key=lambda x:x.date)
+    past_revisions = Revision.objects.filter(date__lt=date.today())
 
     return render(request, 'revise_minder/past_revisions.html', {'past_revisions':past_revisions})
 
@@ -142,11 +110,8 @@ def add_study(request):
         if form.is_valid():
             study = form.save(commit=False)
             study.user = request.user
-
-            revision = Revision(study=study, date=study.date)
-
             study.save()
-            revision.save()
+            calc_revisions(study)
 
             return redirect('my_studies')
         
@@ -170,11 +135,14 @@ def edit_study(request, study_id):
         form = StudyForm(request.POST, instance=study, user=request.user)
 
         if form.is_valid():
-            revision = Revision.objects.get(study=study)
-            revision.date = study.date
+            study = form.save(commit=False)
+            revisions = Revision.objects.filter(study=study)
 
-            form.save()
-            revision.save()
+            for revision in revisions:
+                revision.delete()
+
+            study.save()
+            calc_revisions(study)
 
             return redirect('my_studies')
 

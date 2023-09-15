@@ -62,30 +62,8 @@ class Revision(models.Model):
         blank=False,
         related_name="study_revision"
     )
-    date = models.DateField(default=date.today, blank=False)
-    date_plus_1_day = models.DateField(default=None, null=False, blank=False)
-    date_plus_1_week = models.DateField(default=None, null=True, blank=True)
-    date_plus_1_month = models.DateField(default=None, null=True, blank=True)
+    date = models.DateField(default=None, null=False, blank=False)
     is_done = models.BooleanField(default=False)
-    
-    def save(self, *args, **kwargs):
-        if self.date:
-            if self.study.revisions_cycles == 3:
-                self.date_plus_1_day = self.date + timedelta(days=1)
-                self.date_plus_1_week = self.date + timedelta(weeks=1)
-                self.date_plus_1_month = self.date + timedelta(days=30)
-
-            if self.study.revisions_cycles == 2:
-                self.date_plus_1_day = self.date + timedelta(days=1)
-                self.date_plus_1_week = self.date + timedelta(weeks=1)
-                self.date_plus_1_month = None
-                
-            if self.study.revisions_cycles == 1:
-                self.date_plus_1_day = self.date + timedelta(days=1)
-                self.date_plus_1_week = None
-                self.date_plus_1_month = None
-
-            super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"Revision [study={self.study.id}, date={self.date}, date_1_day={self.date_plus_1_day}]"
+        return f"Revision [study={self.study.id}, date={self.date}]"
