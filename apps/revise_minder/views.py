@@ -33,7 +33,7 @@ def revisions_home(request):
     today_revisions = Revision.objects.filter(date=date_today)
     done_revisions = today_revisions.filter(is_done=True)
     today_revisions = today_revisions.filter(is_done=False)
-    next_revisions = Revision.objects.filter(date__gt=date_today)
+    next_revisions = Revision.objects.order_by("date").filter(date__gt=date_today)
     
     return render(request, 'revise_minder/revisions_home.html', {'today_revisions':today_revisions, 'next_revisions':next_revisions, 'done_revisions':done_revisions})
 
@@ -52,7 +52,7 @@ def past_revisions(request):
     if not request.user.is_authenticated:
         return redirect('login')
     
-    past_revisions = Revision.objects.filter(date__lt=date.today())
+    past_revisions = Revision.objects.order_by("-date").filter(date__lt=date.today())
 
     return render(request, 'revise_minder/past_revisions.html', {'past_revisions':past_revisions})
 

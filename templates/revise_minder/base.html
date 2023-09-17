@@ -13,8 +13,10 @@
     <link rel="stylesheet" href="{% static 'styles/subject.css' %}">
     <link rel="stylesheet" href="{% static 'styles/my_studies.css' %}">
     <title>Revise Minder</title>
+    <script src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
+    {% include 'revise_minder/partials/_header.html' %}
     {% block content %}{% endblock %}
     {% include 'revise_minder/partials/_footer.html' %}
 </body>

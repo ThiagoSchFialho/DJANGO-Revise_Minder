@@ -31,6 +31,47 @@ header {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
+.user-profile {
+    cursor: pointer;
+    color: var(--black);
+    padding: 5px 15px;
+    text-decoration: none;
+    font-size: 14pt;
+    font-weight: bold;
+    background-color: var(--light-color);
+    border-radius: 65px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.user-menu {
+    display: none;
+    position: absolute;
+    right: 50px;
+    transform: translateY(14px);
+    width: 150px;
+    padding: 5px 10px;
+    background-color: var(--light-color);
+    border-radius: 10px;
+    box-shadow: 0px -10px 0px var(--light-color), 0 0px 10px rgba(0, 0, 0, 0.3);
+    border-top-right-radius: 0px;
+}
+
+.user-menu ul {
+    list-style: none;
+}
+
+.user-menu li {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.user-menu a {
+    color: var(--black);
+    text-decoration: none;
+    font-size: 12pt;
+    font-weight: bold;
+}
+
 .user-authentication a:first-child {
     margin-right: 20px;
 }
