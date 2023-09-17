@@ -5,10 +5,10 @@
 }
 
 form {
-    width: 40%;
-    padding: 60px 100px 20px 100px;
+    width: 500px;
+    padding: 40px 60px 30px 60px;
     margin: 0 auto;
-    border-radius: 30px;
+    border-radius: 15px;
     background-color: var(--light-color);
     box-shadow: 0 0 35px rgba(0, 0, 0, 0.8);
 }
@@ -22,7 +22,7 @@ label {
 .user-form-input {
     width: 100%;
     padding: 7px 14px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font-size: 12pt;
     outline: none;
     border-radius: 5px;
@@ -35,7 +35,7 @@ label {
 
 .btn-submit-container {
     width: 40%;
-    margin: 30px auto;
+    margin: 30px auto 0px auto;
 }
 
 span {
@@ -89,7 +89,6 @@ a {
 
     .btn-submit-container {
         width: 60%;
-        margin: 30px auto;
     }
 
     p {
