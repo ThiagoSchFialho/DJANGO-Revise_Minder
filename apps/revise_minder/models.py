@@ -64,6 +64,13 @@ class Revision(models.Model):
     )
     date = models.DateField(default=None, null=False, blank=False)
     is_done = models.BooleanField(default=False)
+    user = models.ForeignKey(
+        to=User,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=False,
+        related_name="user_revision"
+    )
 
     def __str__(self):
         return f"Revision [study={self.study.id}, date={self.date}]"

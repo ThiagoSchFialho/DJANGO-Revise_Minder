@@ -10,15 +10,15 @@ def calc_revisions(study):
     plus_1_week = study.date + timedelta(weeks=1)
     plus_1_month = study.date + timedelta(days=30)
 
-    revision = Revision(study=study, date=plus_1_day)
+    revision = Revision(study=study, date=plus_1_day, user=study.user)
     revision.save()
 
     if study.revisions_cycles >= 2:
-        revision = Revision(study=study, date=plus_1_week)
+        revision = Revision(study=study, date=plus_1_week, user=study.user)
         revision.save()
 
     if study.revisions_cycles == 3:
-        revision = Revision(study=study, date=plus_1_month)
+        revision = Revision(study=study, date=plus_1_month, user=study.user)
         revision.save()
 
 def index(request):
@@ -27,13 +27,11 @@ def index(request):
 def revisions_home(request):
     if not request.user.is_authenticated:
         return redirect('login')
-    
-    date_today = date.today()
 
-    today_revisions = Revision.objects.filter(date=date_today)
+    today_revisions = Revision.objects.filter(date=date.today(), user=request.user)
     done_revisions = today_revisions.filter(is_done=True)
     today_revisions = today_revisions.filter(is_done=False)
-    next_revisions = Revision.objects.order_by("date").filter(date__gt=date_today)
+    next_revisions = Revision.objects.order_by("date").filter(date__gt=date.today(), user=request.user)
     
     return render(request, 'revise_minder/revisions_home.html', {'today_revisions':today_revisions, 'next_revisions':next_revisions, 'done_revisions':done_revisions})
 
@@ -52,7 +50,7 @@ def past_revisions(request):
     if not request.user.is_authenticated:
         return redirect('login')
     
-    past_revisions = Revision.objects.order_by("-date").filter(date__lt=date.today())
+    past_revisions = Revision.objects.order_by("-date").filter(date__lt=date.today(), user=request.user)
 
     return render(request, 'revise_minder/past_revisions.html', {'past_revisions':past_revisions})
 
