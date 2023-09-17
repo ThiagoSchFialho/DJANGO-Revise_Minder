@@ -5,11 +5,11 @@
                 <h1>Revise Minder</h1>
             </a>
         </div>
-        <div class="user-profile-container">
-            <span id="user-profile" class="user-profile" onclick="user_menu()">{{user.username}}</span>
+        <div class="user-profile-link-container">
+            <span id="user-profile-link" class="user-profile-link" onclick="user_menu()">{{user.username}}</span>
             <div onmouseleave="hide_user_menu()" id="user-menu" class="user-menu">
                 <ul>
-                    <li><a href="">Excluir conta</a></li>
+                    <li><a href="{% url 'my_account' %}">Minha conta</a></li>
                     <li><a href="{% url 'logout' %}">Sair</a></li>
                 </ul>
             </div>

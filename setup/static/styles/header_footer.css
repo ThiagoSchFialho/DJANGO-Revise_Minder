@@ -31,12 +31,13 @@ header {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.user-profile {
+.user-profile-link {
     cursor: pointer;
     color: var(--black);
     padding: 5px 15px;
+    text-transform: capitalize;
     text-decoration: none;
-    font-size: 14pt;
+    font-size: 16pt;
     font-weight: bold;
     background-color: var(--light-color);
     border-radius: 65px;
@@ -46,14 +47,14 @@ header {
 .user-menu {
     display: none;
     position: absolute;
-    right: 50px;
-    transform: translateY(14px);
+    right: 47px;
+    transform: translateY(3px);
     width: 150px;
-    padding: 5px 10px;
+    padding: 20px 10px 0px 10px;
     background-color: var(--light-color);
     border-radius: 10px;
-    box-shadow: 0px -10px 0px var(--light-color), 0 0px 10px rgba(0, 0, 0, 0.3);
     border-top-right-radius: 0px;
+    border: 3px solid var(--primary-color);
 }
 
 .user-menu ul {
@@ -61,15 +62,20 @@ header {
 }
 
 .user-menu li {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     text-align: center;
 }
 
 .user-menu a {
     color: var(--black);
     text-decoration: none;
-    font-size: 12pt;
+    font-size: 13pt;
     font-weight: bold;
+}
+
+.user-menu a:hover {
+    color: var(--btn-color);
+    text-decoration: underline;
 }
 
 .user-authentication a:first-child {
