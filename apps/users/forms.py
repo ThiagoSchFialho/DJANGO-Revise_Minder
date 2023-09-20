@@ -53,3 +53,41 @@ class SignUpForm(forms.Form):
             }
         )
     )
+
+class UpdateUserName(forms.Form):
+    user_name = forms.CharField(
+        label="Nome",
+        required=True,
+        max_length=100
+    )
+
+class UpdatePassword(forms.Form):
+    current_password = forms.CharField(
+        label="Senha Atual",
+        required=True,
+        widget = forms.PasswordInput(
+            attrs={
+                "class": "user-form-input"
+            }
+        )
+    )
+
+    new_password_1 = forms.CharField(
+        label="Nova senha",
+        required=True,
+        widget = forms.PasswordInput(
+            attrs={
+                "class": "user-form-input"
+            }
+        )
+    )
+
+    new_password_2 = forms.CharField(
+        label="Confirme a Senha",
+        required=True,
+        widget = forms.PasswordInput(
+            attrs={
+                "class": "user-form-input"
+            }
+        )
+    )

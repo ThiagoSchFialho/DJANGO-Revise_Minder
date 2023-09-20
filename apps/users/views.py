@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
+from django.contrib.auth import update_session_auth_hash
 
-from apps.users.forms import LoginForm, SignUpForm
+from apps.users.forms import LoginForm, SignUpForm, UpdateUserName, UpdatePassword
 from apps.revise_minder.models import Study, Subject
 
 def login(request):
@@ -61,7 +62,32 @@ def logout(request):
     return redirect("index")
 
 def my_account(request):
-    return render(request, 'users/my_account.html')
+    if not request.user.is_authenticated:
+        return redirect('login')
+    
+    user = request.user
+    user_name = user.username
+
+    if request.method == "POST":
+        form = UpdateUserName(request.POST)
+
+        if form.is_valid():
+            user_name = form["user_name"].value()
+
+            if User.objects.filter(username=user_name).exists():
+                return redirect("my_account")
+
+            if user_name != "" or user_name:
+                user.username = user_name
+                user.save()
+
+    return render(request, 'users/my_account.html', {"user_name": user_name})
+
+def update_password(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+
+    return render(request, "users/update_password.html")
 
 def delete_account(request):
     user = request.user

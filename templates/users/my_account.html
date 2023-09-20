@@ -19,11 +19,11 @@
                     {% csrf_token %}
                     <label for="user_name_input">Nome</label><br>
                     <div class="user-input-line">
-                        <input type="text" name="user_name" id="user_name_input" required>
+                        <input type="text" name="user_name" id="user_name_input" value="{{ user_name }}" required>
                         <button type="submit">Salvar</button>
                     </div>
                 </form>
-                <button><a href="#">Alterar senha</a></button>
+                <button><a href="{% url 'update_password' %}">Alterar senha</a></button>
             </div>
             <hr>
             <div class="delete-account-container">
