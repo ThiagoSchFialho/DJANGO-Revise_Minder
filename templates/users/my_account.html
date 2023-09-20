@@ -2,6 +2,15 @@
 {% block content %}
     <main class="my-account-main-container">
         {% include 'revise_minder/partials/_side-menu.html' %}
+        <div class="delete-account-confirmation-container" id="delete-account-confirmation-container">
+            <div class="delete-account-confirmation">
+                <h3>Tem certeza que deseja excluir a sua conta?</h3>
+                <div class="buttons">
+                    <button><a href="{% url 'delete_account' %}">Sim</a></button>
+                    <button onclick="dont_delete_account()">Não</button>
+                </div>
+            </div>
+        </div>
         <div class="my-account-main-content-container">
             <h2>Minha conta</h2>
 
@@ -23,7 +32,7 @@
                     <p><strong>Essa operação não pode ser desfeita.</strong></p>
                 </div>
                 <div>
-                    <button>Excluir conta</button>
+                    <button onclick="delete_account_confirmation()">Excluir conta</button>
                 </div>
             </div>
         </div> 

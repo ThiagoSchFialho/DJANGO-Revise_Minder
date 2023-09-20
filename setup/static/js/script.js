@@ -15,3 +15,13 @@ function hide_user_menu() {
     var user_profile = document.getElementById("user-profile-link");
     user_profile.style.borderRadius = "65px";
 }
+
+function delete_account_confirmation() {
+    var confirmation = document.getElementById("delete-account-confirmation-container");
+    confirmation.style.display = "flex";
+}
+
+function dont_delete_account() {
+    var confirmation = document.getElementById("delete-account-confirmation-container");
+    confirmation.style.display = "none";
+}

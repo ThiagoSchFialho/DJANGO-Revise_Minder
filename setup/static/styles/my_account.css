@@ -2,6 +2,55 @@
     display: flex;
 }
 
+.delete-account-confirmation-container {
+    position: absolute;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.delete-account-confirmation {
+    padding: 40px;
+    border-radius: 5px;
+    border: 2px solid var(--primary-color);
+    background-color: var(--light-color);
+    transform: translateY(-60%);
+}
+
+.delete-account-confirmation h3{
+    margin-bottom: 50px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.buttons button {
+    cursor: pointer;
+    padding: 2px 8px;
+    border-radius: 5px;
+    border: 2px solid var(--black);
+    background-color: var(--grey);
+    color: var(--black);
+    font-weight: bold;
+    font-size: 15pt;
+    min-width: fit-content;
+}
+
+.buttons button:first-child {
+    border: 2px solid var(--primary-danger-color);
+    background-color: var(--light-danger-color);
+}
+
+.buttons button a {
+    color: var(--black);
+    text-decoration: none;
+}
+
 .my-account-main-content-container {
     padding: 40px 350px;
     width: calc(100% - var(--side-menu-width));

@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 
 from apps.users.forms import LoginForm, SignUpForm
+from apps.revise_minder.models import Study, Subject
 
 def login(request):
     form = LoginForm()
@@ -61,3 +62,13 @@ def logout(request):
 
 def my_account(request):
     return render(request, 'users/my_account.html')
+
+def delete_account(request):
+    user = request.user
+    studies = Study.objects.filter(user=user)
+    subjects = Subject.objects.filter(user=user)
+
+    studies.delete()
+    subjects.delete()
+    user.delete()
+    return redirect('index')
