@@ -153,6 +153,3 @@ def delete_study(request, study_id):
     study = Study.objects.get(id=study_id)
     study.delete()
     return redirect('my_studies')
-
-def my_account(request):
-    return render(request, 'revise_minder/my_account.html')

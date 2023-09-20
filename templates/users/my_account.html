@@ -1,0 +1,31 @@
+{% extends 'revise_minder/base.html' %}
+{% block content %}
+    <main class="my-account-main-container">
+        {% include 'revise_minder/partials/_side-menu.html' %}
+        <div class="my-account-main-content-container">
+            <h2>Minha conta</h2>
+
+            <div class="user-form-container">
+                <form action="{% url 'my_account' %}" method="POST">
+                    {% csrf_token %}
+                    <label for="user_name_input">Nome</label><br>
+                    <div class="user-input-line">
+                        <input type="text" name="user_name" id="user_name_input" required>
+                        <button type="submit">Salvar</button>
+                    </div>
+                </form>
+                <button><a href="#">Alterar senha</a></button>
+            </div>
+            <hr>
+            <div class="delete-account-container">
+                <div class="delete-account-explainer">
+                    <p>Se essa conta for excluida todos os dados serão excluidos.</p>
+                    <p><strong>Essa operação não pode ser desfeita.</strong></p>
+                </div>
+                <div>
+                    <button>Excluir conta</button>
+                </div>
+            </div>
+        </div> 
+    </main>
+{% endblock %}

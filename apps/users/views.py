@@ -58,3 +58,6 @@ def logout(request):
     auth.logout(request)
 
     return redirect("index")
+
+def my_account(request):
+    return render(request, 'users/my_account.html')

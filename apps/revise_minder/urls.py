@@ -1,5 +1,5 @@
 from django.urls import path
-from apps.revise_minder.views import index, revisions_home, past_revisions, revision_done, subject, delete_subject, edit_subject, add_study, my_studies, delete_study, edit_study, my_account
+from apps.revise_minder.views import index, revisions_home, past_revisions, revision_done, subject, delete_subject, edit_subject, add_study, my_studies, delete_study, edit_study
 
 urlpatterns = [
     path('', index, name='index'),
@@ -12,6 +12,5 @@ urlpatterns = [
     path('add_study/', add_study, name='add_study'),
     path('my_studies/', my_studies, name='my_studies'),
     path('delete_study/<int:study_id>', delete_study, name='delete_study'),
-    path('edit_study/<int:study_id>', edit_study, name='edit_study'),
-    path('my_account', my_account, name='my_account')
+    path('edit_study/<int:study_id>', edit_study, name='edit_study')
 ]

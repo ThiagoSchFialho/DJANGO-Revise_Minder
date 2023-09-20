@@ -3,8 +3,108 @@
 }
 
 .my-account-main-content-container {
-    padding: 40px 300px;
+    padding: 40px 350px;
     width: calc(100% - var(--side-menu-width));
     min-height: calc(100vh - var(--header-height));
     height: fit-content;
+}
+
+.my-account-main-content-container h2 {
+    text-align: center;
+    color: var(--dark-color);
+    margin-bottom: 40px;
+}
+
+.my-account-main-content-container hr {
+    margin: 50px 0px;
+    border: 1px solid var(--dark-color)
+}
+
+.my-account-main-content-container button {
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid var(--primary-color);
+    background-color: var(--light-color);
+    color: var(--black);
+    font-weight: 500;
+    min-width: fit-content;
+}
+
+.user-form-container {
+    min-width: 700px;
+}
+
+.user-form-container form{
+    margin-bottom: 20px;
+}
+
+.user-form-container button {
+    padding: 4px 8px;
+    font-size: 14pt;
+}
+
+.user-form-container button a {
+    color: var(--black);
+    text-decoration: none;
+}
+
+.user-form-container label {
+    font-size: 15pt;
+    font-weight: 500;
+}
+
+.user-input-line {
+    display: flex;
+    justify-content: space-between;
+    height: 45px;
+}
+
+.user-input-line input{
+    width: 88%;
+    padding: 7px 14px;
+    font-size: 12pt;
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid var(--primary-color);
+    background-color: var(--white);
+}
+
+.user-input-line button {
+    width: 10%;
+    font-size: 12pt;
+}
+
+.delete-account-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--grey);
+    border: 2px solid var(--dark-color);
+}
+
+.delete-account-container button{
+    margin-right: 10px;
+    padding: 4px 8px;
+    font-size: 12pt;
+    border: 2px solid var(--primary-danger-color);
+    background-color: var(--light-danger-color);
+}
+
+.delete-account-explainer {
+    padding: 10px 20px;
+    border: 2px solid var(--dark-color);
+    border-radius: 5px;
+    text-align: center;
+    font-size: 13pt;
+}
+.delete-account-explainer p:first-child {
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 1366px) {
+    .my-account-main-content-container {
+        padding: 40px 150px;
+    }
 }
