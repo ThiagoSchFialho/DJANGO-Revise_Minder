@@ -75,8 +75,8 @@ a {
     form {
         position: absolute;
         left: 50%;
-        top: 5%;
-        transform: translateX(-50%);
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .user-form-input {
@@ -94,7 +94,7 @@ a {
     p {
         position: absolute;
         left: 50%;
-        bottom: 5%;
+        bottom: 3%;
         transform: translateX(-50%);
     }
 }

@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'styles/style.css' %}">
     <link rel="stylesheet" href="{% static 'styles/forms.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/message.css' %}">
     <title>Cadastro</title>
+    <script src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
+    {% include 'partials/_message.html' %}
     <div class="form-container">
         <form action="{% url 'signup' %}" method="POST">
             {% csrf_token %}

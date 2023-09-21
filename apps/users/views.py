@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib import auth
+from django.contrib import auth, messages
 from django.contrib.auth import update_session_auth_hash
 
 from apps.users.forms import LoginForm, SignUpForm, UpdateUserName, UpdatePassword
@@ -26,6 +26,7 @@ def login(request):
                 auth.login(request, user)
                 return redirect("revisions_home")
             else:
+                messages.error(request, "Nome de usuário ou senha incorretos.")
                 return redirect("login")
 
     return render(request, 'users/login.html', {"form": form})
@@ -38,12 +39,14 @@ def signup(request):
 
         if form.is_valid():
             if form["password_1"].value() != form["password_2"].value():
+                messages.error(request, "As duas senhas precisam ser iguais.")
                 return redirect("signup")
             
             name = form["sign_up_name"].value()
             password = form["password_1"].value()
 
             if User.objects.filter(username=name).exists():
+                messages.error(request, "Nome de usuário não disponível.")
                 return redirect("signup")
             
             user = User.objects.create_user(
@@ -52,13 +55,13 @@ def signup(request):
             )
             user.save()
 
+            messages.success(request, "Cadastro feito com sucesso.")
             return redirect("login")
 
     return render(request, 'users/signup.html', {"form": form});
 
 def logout(request):
     auth.logout(request)
-
     return redirect("index")
 
 def my_account(request):
@@ -75,10 +78,12 @@ def my_account(request):
             user_name = form["user_name"].value()
 
             if User.objects.filter(username=user_name).exists():
+                messages.error(request, "Nome de usuário não disponível.")
                 return redirect("my_account")
 
             if user_name != "" or user_name:
                 user.username = user_name
+                messages.success(request, "Nome de usuário alterado com sucesso.")
                 user.save()
 
     return render(request, 'users/my_account.html', {"user_name": user_name})
@@ -97,4 +102,5 @@ def delete_account(request):
     studies.delete()
     subjects.delete()
     user.delete()
+    messages.success(request, "Conta excluida com sucesso.")
     return redirect('index')

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.db.models import Q
 from datetime import date, timedelta
+from django.contrib import messages
 
 from apps.revise_minder.forms import SubjectForm, StudyForm
 from apps.revise_minder.models import Subject, Study, Revision
@@ -68,6 +69,7 @@ def subject(request):
             subject = form.save(commit=False)
             subject.user = request.user
             subject.save()
+            messages.success(request, "Assunto criado com sucesso.")
             return redirect('subject')
 
     return render(request, "revise_minder/subject.html", {'form':form, 'subjects':subjects})
@@ -110,7 +112,6 @@ def add_study(request):
             study.user = request.user
             study.save()
             calc_revisions(study)
-
             return redirect('my_studies')
         
     return render(request, 'revise_minder/add_study.html', {'form':form})

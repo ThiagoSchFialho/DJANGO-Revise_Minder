@@ -25,3 +25,8 @@ function dont_delete_account() {
     var confirmation = document.getElementById("delete-account-confirmation-container");
     confirmation.style.display = "none";
 }
+
+function hide_message() {
+    var message = document.getElementById("message");
+    message.style.display = "none";
+}

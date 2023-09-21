@@ -1,0 +1,36 @@
+.alert {
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 3%;
+    left: 50%;
+    transform: translatex(-50%);
+    padding: 20px 50px 20px 25px;
+    border-radius: 5px;
+    border: 2px solid var(--dark-color);
+}
+
+.close-message {
+    position: absolute;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    background-image: url(../assets/close_icon.svg);
+}
+
+.alert p {
+    position: relative;
+    margin: 0;
+    color: var(--black);
+}
+
+.alert-danger {
+    background-color: var(--light-danger-color);
+}
+
+.alert-success {
+    background-color: var(--light-color);
+}
