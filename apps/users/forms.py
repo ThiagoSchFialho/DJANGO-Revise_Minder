@@ -72,7 +72,7 @@ class UpdatePassword(forms.Form):
         )
     )
 
-    new_password_1 = forms.CharField(
+    new_password1 = forms.CharField(
         label="Nova senha",
         required=True,
         widget = forms.PasswordInput(
@@ -82,7 +82,7 @@ class UpdatePassword(forms.Form):
         )
     )
 
-    new_password_2 = forms.CharField(
+    new_password2 = forms.CharField(
         label="Confirme a Senha",
         required=True,
         widget = forms.PasswordInput(

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth, messages
-from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth import update_session_auth_hash, authenticate
 
 from apps.users.forms import LoginForm, SignUpForm, UpdateUserName, UpdatePassword
 from apps.revise_minder.models import Study, Subject
@@ -91,8 +91,29 @@ def my_account(request):
 def update_password(request):
     if not request.user.is_authenticated:
         return redirect('login')
+    
+    form = UpdatePassword()
 
-    return render(request, "users/update_password.html")
+    if request.method == 'POST':
+        form = UpdatePassword(request.POST)
+
+        if form.is_valid():
+            user = authenticate(username=request.user.username, password=form.cleaned_data['current_password'])
+            
+            if user is not None:
+                user.set_password(form.cleaned_data['new_password1'])
+                user.save()
+                update_session_auth_hash(request, user)
+                messages.success(request, "Senha alterada com sucesso.")
+                return redirect('my_account')
+            else:
+                messages.error(request, "Senha atual incorreta.")
+        else:
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"Erro no campo {field}: {error}")
+
+    return render(request, "users/update_password.html", {"form": form})
 
 def delete_account(request):
     user = request.user
