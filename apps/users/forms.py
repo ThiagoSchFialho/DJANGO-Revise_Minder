@@ -37,6 +37,7 @@ class SignUpForm(forms.Form):
     password_1 = forms.CharField(
         label="Senha",
         required=True,
+        min_length=8,
         widget = forms.PasswordInput(
             attrs={
                 "class": "user-form-input"
@@ -47,6 +48,7 @@ class SignUpForm(forms.Form):
     password_2 = forms.CharField(
         label="Confirme a Senha",
         required=True,
+        min_length=8,
         widget = forms.PasswordInput(
             attrs={
                 "class": "user-form-input"
@@ -75,6 +77,7 @@ class UpdatePassword(forms.Form):
     new_password1 = forms.CharField(
         label="Nova senha",
         required=True,
+        min_length=8,
         widget = forms.PasswordInput(
             attrs={
                 "class": "user-form-input"
@@ -85,6 +88,7 @@ class UpdatePassword(forms.Form):
     new_password2 = forms.CharField(
         label="Confirme a Senha",
         required=True,
+        min_length=8,
         widget = forms.PasswordInput(
             attrs={
                 "class": "user-form-input"

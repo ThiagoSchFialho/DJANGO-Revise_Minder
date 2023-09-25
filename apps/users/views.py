@@ -98,6 +98,10 @@ def update_password(request):
         form = UpdatePassword(request.POST)
 
         if form.is_valid():
+            if form.cleaned_data['new_password1'] != form.cleaned_data['new_password2']:
+                messages.error(request, 'As duas senhas precisam ser iguais.')
+                return redirect('update_password')
+            
             user = authenticate(username=request.user.username, password=form.cleaned_data['current_password'])
             
             if user is not None:
