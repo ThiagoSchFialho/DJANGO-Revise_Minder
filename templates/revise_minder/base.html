@@ -20,7 +20,12 @@
 </head>
 <body>
     {% include 'revise_minder/partials/_header.html' %}
-    {% block content %}{% endblock %}
+    <main class="main-container">
+        {% include 'revise_minder/partials/_side-menu.html' %}
+        <div class="main-content-container">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
     {% include 'revise_minder/partials/_footer.html' %}
 </body>
 </html>

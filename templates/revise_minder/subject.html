@@ -1,57 +1,51 @@
 {% extends 'revise_minder/base.html' %}
 {% block content %}
-    <main class="form-list-main-container">
-        {% include 'revise_minder/partials/_side-menu.html' %}
-        <div class="form-list-main-content-container">
-            {% include 'partials/_message.html' %}
-            <h2>Criar um novo Assunto</h2>
+    {% include 'partials/_message.html' %}
+    <h2 class="centered-text">Criar um novo Assunto</h2>
 
-            <div class="form-list-form-explanation-container">
-                <div class="form-list-form-container">
-                    <form action="{% url 'subject' %}" method="POST">
-                        {% csrf_token %}
-                
-                        {% for field in form.visible_fields %}
-                        <div>
-                            <label for="{{ field.id_or_label }}">{{ field.label }}</label><BR>
-                            {{ field }}
-                        </div>
-                        {% endfor %}
-                        <div class="form-list-btn-submit-container">
-                            <button type="submit">Criar</button>
-                        </div>
-                    </form>
+    <div class="form-list-form-explanation-container">
+        <div class="form-list-form-container">
+            <form action="{% url 'subject' %}" method="POST">
+                {% csrf_token %}
+        
+                {% for field in form.visible_fields %}
+                <div>
+                    <label for="{{ field.id_or_label }}">{{ field.label }}</label><BR>
+                    {{ field }}
                 </div>
-                <div class="explanation">
-                    <p>Crie um novo assunto para poder usar em suas revisões.</p>
+                {% endfor %}
+                <div class="form-list-btn-submit-container">
+                    <button type="submit">Criar</button>
                 </div>
-            </div>
-
-            <hr>
-
-            <div class="list-container">
-                <h2>Meus assuntos:</h2>
-                <ul>
-                    {% if subjects %}
-                    {% for subject in subjects %}
-                        <li>
-                            <div class="subject">
-                                <p>{{ subject.description }}</p>
-                                <div class="subject-color {{ subject.color }}">
-                                </div>
-                            </div>
-                            <div class="subject-commands">
-                                <a href="{% url 'edit_subject' subject.id %}" class="azul">Editar</a>
-                                <a href="{% url 'delete_subject' subject.id %}" class="vermelho">Excluir</a>
-                            </div>
-                        </li>
-                    {% endfor %}
-                    {% else %}
-                        <h3>(Não há assuntos ainda.)</h3>
-                    {% endif %}
-                </ul>
-            </div>
-
+            </form>
         </div>
-    </main>
+        <div class="explanation">
+            <p>Crie um novo assunto para poder usar em suas revisões.</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="list-container">
+        <h2>Meus assuntos:</h2>
+        <ul>
+            {% if subjects %}
+            {% for subject in subjects %}
+                <li>
+                    <div class="subject">
+                        <p>{{ subject.description }}</p>
+                        <div class="subject-color {{ subject.color }}">
+                        </div>
+                    </div>
+                    <div class="subject-commands">
+                        <a href="{% url 'edit_subject' subject.id %}" class="azul">Editar</a>
+                        <a href="{% url 'delete_subject' subject.id %}" class="vermelho">Excluir</a>
+                    </div>
+                </li>
+            {% endfor %}
+            {% else %}
+                <h3>(Não há assuntos ainda.)</h3>
+            {% endif %}
+        </ul>
+    </div>
 {% endblock %}

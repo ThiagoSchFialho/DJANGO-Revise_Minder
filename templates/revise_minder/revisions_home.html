@@ -1,110 +1,105 @@
 {% extends 'revise_minder/base.html' %}
 {% block content %}
-    <main class="revisions-home-main-container">
-        {% include 'revise_minder/partials/_side-menu.html' %}
-        <div class="revisions-home-main-content-container">
-            <div class="revisions">
-                <div class="today-revisions">
-                    <h2 class="revisions-list-title">Revisões para hoje</h2>
-                    <ul>
-                        {% if today_revisions %}
-                        {% for revision in today_revisions %}
-                        <li>
-                            <a href="{% url 'revision_done' revision.id %}">
-                                <div class="checkbox-list-item">
-                                    <svg width="36" height="30" viewBox="0 0 36 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="1" y="1" width="28" height="28" rx="4" fill="var(--light-color)" stroke="var(--primary-color)" stroke-width="2"/>
-                                    </svg>                                        
-                                </div>
-                            </a>
-                            <div class="revision-list-item" style="margin-left: -56px;">
-                                <div class="revision-subject-info">
-                                    <div class="revision-subject-icon {{ revision.study.subject.color }}"></div>
-                                    <div class="revision-subject-name">
-                                        {% if revision.study.subject %}
-                                            <p>{{ revision.study.subject.description }}</p>
-                                        {% else %}
-                                            <p>(Sem assunto) Edite o estudo para adicionar um assunto. (id={{revision.study.id}})</p>
-                                        {% endif %}
-                                    </div>
-                                </div>
-                                <div class="revision-date">Hoje</div>
+    <div class="revisions">
+        <div class="today-revisions">
+            <h2 class="revisions-list-title">Revisões para hoje</h2>
+            <ul>
+                {% if today_revisions %}
+                {% for revision in today_revisions %}
+                <li>
+                    <a href="{% url 'revision_done' revision.id %}">
+                        <div class="checkbox-list-item">
+                            <svg width="36" height="30" viewBox="0 0 36 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="1" y="1" width="28" height="28" rx="4" fill="var(--light-color)" stroke="var(--primary-color)" stroke-width="2"/>
+                            </svg>                                        
+                        </div>
+                    </a>
+                    <div class="revision-list-item" style="margin-left: -56px;">
+                        <div class="revision-subject-info">
+                            <div class="revision-subject-icon {{ revision.study.subject.color }}"></div>
+                            <div class="revision-subject-name">
+                                {% if revision.study.subject %}
+                                    <p>{{ revision.study.subject.description }}</p>
+                                {% else %}
+                                    <p>(Sem assunto) Edite o estudo para adicionar um assunto. (id={{revision.study.id}})</p>
+                                {% endif %}
                             </div>
-                        </li>
-                        {% endfor %}
-                        {% else %}
-                            <h3>(Nenhuma revisão a ser feita.)</h3>
-                        {% endif %}
-                    </ul>
-                </div>
-
-                <HR>
-
-                <div class="next-revisions">
-                    <h2 class="revisions-list-title">Revisões Futuras</h2>
-                    <ul>
-                        {% if next_revisions %}
-                        {% for revision in next_revisions %}
-                        <li>
-                            <div class="revision-list-item">
-                                <div class="revision-subject-info">
-                                    <div class="revision-subject-icon {{ revision.study.subject.color }}"></div>
-                                    <div class="revision-subject-name">
-                                        {% if revision.study.subject %}
-                                            <p>{{ revision.study.subject.description }}</p>
-                                        {% else %}
-                                            <p>(Sem assunto) Edite o estudo para adicionar um assunto. (id={{revision.study.id}})</p>
-                                        {% endif %}
-                                    </div>
-                                </div>
-                                <div class="revision-date">{{revision.date.day}}/{{revision.date.month}}/{{revision.date.year}}</div>
-                            </div>
-                        </li>
-                        {% endfor %}
-                        {% else %}
-                            <h3>(Nenhuma revisão a ser feita.)</h3>
-                        {% endif %}
-                    </ul>
-                </div>
-
-                <HR>
-
-                <div class="done-revisions">
-                    <h2 class="revisions-list-title">Revisões de hoje feitas</h2>
-                    <ul>
-                        {% if done_revisions %}
-                        {% for revision in done_revisions %}
-                        <li>
-                            <a href="{% url 'revision_done' revision.id %}">
-                                <div class="checkbox-list-item">
-                                    <svg width="36" height="30" viewBox="0 0 36 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="1" y="1" width="28" height="28" rx="4" fill="var(--light-color)" stroke="var(--primary-color)" stroke-width="2"/>
-                                        <path d="M33 5L14.3743 22.3186C13.9697 22.6949 13.3366 22.6717 12.9606 22.2668L6 14.7714" stroke="black" stroke-width="6" stroke-linecap="round"/>
-                                    </svg>
-                                </div>
-                            </a>
-                            <div class="revision-list-item" style="margin-left: -56px;">
-                                <div class="revision-subject-info">
-                                    <div class="revision-subject-icon {{ revision.study.subject.color }}"></div>
-                                    <div class="revision-subject-name">
-                                        {% if revision.study.subject %}
-                                            <p>{{ revision.study.subject.description }}</p>
-                                        {% else %}
-                                            <p>(Sem assunto) Edite o estudo para adicionar um assunto. (id={{revision.study.id}})</p>
-                                        {% endif %}
-                                    </div>
-                                </div>
-                                <div class="revision-date">Hoje</div>
-                            </div>
-                        </li>
-                        {% endfor %}
-                        {% else %}
-                            <h3>(Nenhuma revisão feita hoje.)</h3>
-                        {% endif %}
-                    </ul>
-                </div>
-
-            </div>
+                        </div>
+                        <div class="revision-date">Hoje</div>
+                    </div>
+                </li>
+                {% endfor %}
+                {% else %}
+                    <h3>(Nenhuma revisão a ser feita.)</h3>
+                {% endif %}
+            </ul>
         </div>
-    </main>
+
+        <HR>
+
+        <div class="next-revisions">
+            <h2 class="revisions-list-title">Revisões Futuras</h2>
+            <ul>
+                {% if next_revisions %}
+                {% for revision in next_revisions %}
+                <li>
+                    <div class="revision-list-item">
+                        <div class="revision-subject-info">
+                            <div class="revision-subject-icon {{ revision.study.subject.color }}"></div>
+                            <div class="revision-subject-name">
+                                {% if revision.study.subject %}
+                                    <p>{{ revision.study.subject.description }}</p>
+                                {% else %}
+                                    <p>(Sem assunto) Edite o estudo para adicionar um assunto. (id={{revision.study.id}})</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="revision-date">{{revision.date.day}}/{{revision.date.month}}/{{revision.date.year}}</div>
+                    </div>
+                </li>
+                {% endfor %}
+                {% else %}
+                    <h3>(Nenhuma revisão a ser feita.)</h3>
+                {% endif %}
+            </ul>
+        </div>
+
+        <HR>
+
+        <div class="done-revisions">
+            <h2 class="revisions-list-title">Revisões de hoje feitas</h2>
+            <ul>
+                {% if done_revisions %}
+                {% for revision in done_revisions %}
+                <li>
+                    <a href="{% url 'revision_done' revision.id %}">
+                        <div class="checkbox-list-item">
+                            <svg width="36" height="30" viewBox="0 0 36 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="1" y="1" width="28" height="28" rx="4" fill="var(--light-color)" stroke="var(--primary-color)" stroke-width="2"/>
+                                <path d="M33 5L14.3743 22.3186C13.9697 22.6949 13.3366 22.6717 12.9606 22.2668L6 14.7714" stroke="black" stroke-width="6" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="revision-list-item" style="margin-left: -56px;">
+                        <div class="revision-subject-info">
+                            <div class="revision-subject-icon {{ revision.study.subject.color }}"></div>
+                            <div class="revision-subject-name">
+                                {% if revision.study.subject %}
+                                    <p>{{ revision.study.subject.description }}</p>
+                                {% else %}
+                                    <p>(Sem assunto) Edite o estudo para adicionar um assunto. (id={{revision.study.id}})</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="revision-date">Hoje</div>
+                    </div>
+                </li>
+                {% endfor %}
+                {% else %}
+                    <h3>(Nenhuma revisão feita hoje.)</h3>
+                {% endif %}
+            </ul>
+        </div>
+
+    </div>
 {% endblock %}

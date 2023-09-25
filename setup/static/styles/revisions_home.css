@@ -1,23 +1,3 @@
-.revisions-home-main-container {
-    display: flex;
-}
-
-.revisions-home-main-content-container {
-    padding: 40px 300px;
-    width: calc(100% - var(--side-menu-width));
-    min-height: calc(100vh - var(--header-height));
-    height: fit-content;
-}
-
-.revisions-home-main-content-container hr {
-    margin-bottom: 50px;
-    border: 1px solid var(--dark-color);
-}
-
-.revisions-home-main-content-container ul {
-    list-style: none;
-}
-
 .revisions {
     height: fit-content;
 }
@@ -105,10 +85,6 @@
 }
 
 @media screen and (max-width: 1366px) {
-    .revisions-home-main-content-container {
-        padding: 40px 100px;
-    }
-
     .revision-subject-name p {
         font-weight: 500;
         font-size: 12pt;

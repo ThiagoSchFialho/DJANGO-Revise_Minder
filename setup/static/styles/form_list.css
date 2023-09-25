@@ -1,24 +1,3 @@
-.form-list-main-container {
-    display: flex;
-}
-
-.form-list-main-content-container {
-    padding: 40px 300px;
-    width: calc(100% - var(--side-menu-width));
-    min-height: calc(100vh - var(--header-height));
-    height: fit-content;
-}
-
-.form-list-main-content-container h2 {
-    text-align: center;
-    color: var(--dark-color);
-}
-
-.form-list-main-content-container hr {
-    margin-bottom: 50px;
-    border: 1px solid var(--dark-color);
-}
-
 .form-list-form-explanation-container {
     display: flex;
     margin: 30px 0px 50px 0px;

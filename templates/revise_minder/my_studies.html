@@ -1,41 +1,35 @@
 {% extends 'revise_minder/base.html' %}
 {% block content %}
-    <main class="form-list-main-container">
-        {% include 'revise_minder/partials/_side-menu.html' %}
-        <div class="form-list-main-content-container">
-            
-            <div class="list-container">
-                <h2>Meus Estudos:</h2>
-                <ul>
-                    {% if studies %}
-                        {% for study in studies %}
-                            <li>
-                                <div class="study">
-                                    <div class="study-subject-description">
-                                        {% if study.subject %}
-                                            <p>{{ study.subject.description }}</p>
-                                        {% else %}
-                                            <p>(Sem assunto) Edite o estudo para adicionar um assunto. (id={{study.id}})</p>
-                                        {% endif %}
-                                    </div>
-                                    <div class="study-revision-cycles">
-                                        <p>{{ study.revisions_cycles }} Revisões</p>
-                                    </div>
-                                    <div class="study-date">
-                                        <p>{{ study.date.day }}/{{ study.date.month }}/{{ study.date.year }}</p>
-                                    </div>
-                                </div>
-                                <div class="study-commands">
-                                    <a href="{% url 'edit_study' study.id %}" class="azul">Editar</a>
-                                    <a href="{% url 'delete_study' study.id %}" class="vermelho">Excluir</a>
-                                </div>
-                            </li>
-                        {% endfor %}
-                    {% else %}
-                        <h3>(Não há Estudos ainda.)</h3>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    </main>
+    <div class="list-container">
+        <h2>Meus Estudos:</h2>
+        <ul>
+            {% if studies %}
+                {% for study in studies %}
+                    <li>
+                        <div class="study">
+                            <div class="study-subject-description">
+                                {% if study.subject %}
+                                    <p>{{ study.subject.description }}</p>
+                                {% else %}
+                                    <p>(Sem assunto) Edite o estudo para adicionar um assunto. (id={{study.id}})</p>
+                                {% endif %}
+                            </div>
+                            <div class="study-revision-cycles">
+                                <p>{{ study.revisions_cycles }} Revisões</p>
+                            </div>
+                            <div class="study-date">
+                                <p>{{ study.date.day }}/{{ study.date.month }}/{{ study.date.year }}</p>
+                            </div>
+                        </div>
+                        <div class="study-commands">
+                            <a href="{% url 'edit_study' study.id %}" class="azul">Editar</a>
+                            <a href="{% url 'delete_study' study.id %}" class="vermelho">Excluir</a>
+                        </div>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <h3>(Não há Estudos ainda.)</h3>
+            {% endif %}
+        </ul>
+    </div>
 {% endblock %}

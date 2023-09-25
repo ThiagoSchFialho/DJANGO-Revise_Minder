@@ -1,30 +1,25 @@
 {% extends 'revise_minder/base.html' %}
 {% block content %}
-    <main class="revisions-home-main-container">
-        {% include 'revise_minder/partials/_side-menu.html' %}
-        <div class="revisions-home-main-content-container">
-            <div class="revisions">
-                <h2 class="revisions-list-title">Revisões passadas</h2>
-                <ul>
-                    {% if past_revisions %}
-                    {% for revision in past_revisions %}
-                        <li>
-                            <div class="revision-list-item">
-                                <div class="revision-subject-info">
-                                    <div class="revision-subject-icon {{ revision.study.subject.color }}"></div>
-                                    <div class="revision-subject-name">
-                                        <p>{{ revision.study.subject.description }}</p>
-                                    </div>
-                                </div>
-                                <div class="revision-date">{{revision.date.day}}/{{revision.date.month}}/{{revision.date.year}}</div>
+    <div class="revisions">
+        <h2 class="revisions-list-title">Revisões passadas</h2>
+        <ul>
+            {% if past_revisions %}
+            {% for revision in past_revisions %}
+                <li>
+                    <div class="revision-list-item">
+                        <div class="revision-subject-info">
+                            <div class="revision-subject-icon {{ revision.study.subject.color }}"></div>
+                            <div class="revision-subject-name">
+                                <p>{{ revision.study.subject.description }}</p>
                             </div>
-                        </li>
-                    {% endfor %}
-                    {% else %}
-                        <h3>(Nenhuma revisão passada.)</h3>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    </main>
+                        </div>
+                        <div class="revision-date">{{revision.date.day}}/{{revision.date.month}}/{{revision.date.year}}</div>
+                    </div>
+                </li>
+            {% endfor %}
+            {% else %}
+                <h3>(Nenhuma revisão passada.)</h3>
+            {% endif %}
+        </ul>
+    </div>
 {% endblock %}
