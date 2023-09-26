@@ -1,41 +1,36 @@
 {% extends 'revise_minder/base.html' %}
 {% block content %}
-    <main class="my-account-main-container">
-        {% include 'revise_minder/partials/_side-menu.html' %}
-        <div class="delete-account-confirmation-container" id="delete-account-confirmation-container">
-            <div class="delete-account-confirmation">
-                <h3>Tem certeza que deseja excluir a sua conta?</h3>
-                <div class="buttons">
-                    <button><a href="{% url 'delete_account' %}">Sim</a></button>
-                    <button onclick="dont_delete_account()">Não</button>
-                </div>
+    <div class="delete-account-confirmation-container" id="delete-account-confirmation-container">
+        <div class="delete-account-confirmation">
+            <h3>Tem certeza que deseja excluir a sua conta?</h3>
+            <div class="buttons">
+                <button><a href="{% url 'delete_account' %}">Sim</a></button>
+                <button onclick="dont_delete_account()">Não</button>
             </div>
         </div>
-        <div class="my-account-main-content-container">
-        {% include 'partials/_message.html' %}
-            <h2>Minha conta</h2>
+    </div>
+    {% include 'partials/_message.html' %}
+        <h2 class="centered-text">Minha conta</h2>
 
-            <div class="user-form-container">
-                <form action="{% url 'my_account' %}" method="POST">
-                    {% csrf_token %}
-                    <label for="user_name_input">Nome</label><br>
-                    <div class="user-input-line">
-                        <input type="text" name="user_name" id="user_name_input" value="{{ user_name }}" required>
-                        <button type="submit">Salvar</button>
-                    </div>
-                </form>
-                <button><a href="{% url 'update_password' %}">Alterar senha</a></button>
-            </div>
-            <hr>
-            <div class="delete-account-container">
-                <div class="delete-account-explainer">
-                    <p>Se essa conta for excluida todos os dados serão excluidos.</p>
-                    <p><strong>Essa operação não pode ser desfeita.</strong></p>
+        <div class="user-form-container">
+            <form action="{% url 'my_account' %}" method="POST">
+                {% csrf_token %}
+                <label for="user_name_input">Nome</label><br>
+                <div class="user-input-line">
+                    <input type="text" name="user_name" id="user_name_input" value="{{ user_name }}" required>
+                    <button type="submit">Salvar</button>
                 </div>
-                <div>
-                    <button onclick="delete_account_confirmation()">Excluir conta</button>
-                </div>
+            </form>
+            <button><a href="{% url 'update_password' %}">Alterar senha</a></button>
+        </div>
+        <hr style="margin-top: 50px">
+        <div class="delete-account-container">
+            <div class="delete-account-explainer">
+                <p>Se essa conta for excluida todos os dados serão excluidos.</p>
+                <p><strong>Essa operação não pode ser desfeita.</strong></p>
             </div>
-        </div> 
-    </main>
+            <div>
+                <button onclick="delete_account_confirmation()">Excluir conta</button>
+            </div>
+        </div>
 {% endblock %}

@@ -13,6 +13,11 @@
 <body>
     {% include 'partials/_message.html' %}
     <div class="form-container">
+        <div class="index-link-return">
+            <a href="{% url 'index' %}">
+                <h1>Revise Minder</h1>
+            </a>
+        </div>
         <form action="{% url 'login' %}" method="POST">
             {% csrf_token %}
             

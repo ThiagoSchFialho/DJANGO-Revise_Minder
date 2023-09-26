@@ -1,12 +1,10 @@
 {% extends 'revise_minder/base.html' %}
 {% block content %}
     <h2 class="centered-text">Criar um novo Assunto</h2>
-
     <div class="form-list-form-explanation-container">
         <div class="form-list-form-container">
             <form action="{% url 'edit_subject' subject_id %}" method="POST">
                 {% csrf_token %}
-        
                 {% for field in form.visible_fields %}
                 <div>
                     <label for="{{ field.id_or_label }}">{{ field.label }}</label><BR>

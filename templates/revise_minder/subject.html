@@ -2,12 +2,10 @@
 {% block content %}
     {% include 'partials/_message.html' %}
     <h2 class="centered-text">Criar um novo Assunto</h2>
-
     <div class="form-list-form-explanation-container">
         <div class="form-list-form-container">
             <form action="{% url 'subject' %}" method="POST">
                 {% csrf_token %}
-        
                 {% for field in form.visible_fields %}
                 <div>
                     <label for="{{ field.id_or_label }}">{{ field.label }}</label><BR>
@@ -23,9 +21,7 @@
             <p>Crie um novo assunto para poder usar em suas revisões.</p>
         </div>
     </div>
-
     <hr>
-
     <div class="list-container">
         <h2>Meus assuntos:</h2>
         <ul>

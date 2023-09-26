@@ -49,6 +49,16 @@ body {
     color: var(--dark-color);
 }
 
+.main-content-container button {
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid var(--primary-color);
+    background-color: var(--light-color);
+    color: var(--black);
+    font-weight: 500;
+    min-width: fit-content;
+}
+
 hr {
     margin-bottom: 50px;
     border: 1px solid var(--dark-color);

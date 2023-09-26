@@ -4,6 +4,17 @@
     background-color: var(--dark-color);
 }
 
+.index-link-return {
+    position: absolute;
+    top: 21px;
+    left: 50px;
+}
+
+.index-link-return a {
+    color: var(--white);
+    text-decoration: none;
+}
+
 form {
     width: 500px;
     padding: 40px 60px 30px 60px;

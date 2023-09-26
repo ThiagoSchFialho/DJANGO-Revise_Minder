@@ -1,23 +1,20 @@
-.my-account-main-container {
-    display: flex;
-}
-
 .delete-account-confirmation-container {
     position: absolute;
     display: none;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
+    width: calc(100vw - 15px);
+    height: 100vh;
+    top: 0px;
+    left: 0px;
     background-color: rgba(0, 0, 0, 0.2);
 }
 
 .delete-account-confirmation {
     padding: 40px;
     border-radius: 5px;
-    border: 2px solid var(--primary-color);
+    border: 15px solid var(--primary-color);
     background-color: var(--light-color);
-    transform: translateY(-60%);
 }
 
 .delete-account-confirmation h3{
@@ -51,35 +48,8 @@
     text-decoration: none;
 }
 
-.my-account-main-content-container {
-    padding: 40px 350px;
-    width: calc(100% - var(--side-menu-width));
-    min-height: calc(100vh - var(--header-height));
-    height: fit-content;
-}
-
-.my-account-main-content-container h2 {
-    text-align: center;
-    color: var(--dark-color);
-    margin-bottom: 40px;
-}
-
-.my-account-main-content-container hr {
-    margin: 50px 0px;
-    border: 1px solid var(--dark-color)
-}
-
-.my-account-main-content-container button {
-    cursor: pointer;
-    border-radius: 5px;
-    border: 2px solid var(--primary-color);
-    background-color: var(--light-color);
-    color: var(--black);
-    font-weight: 500;
-    min-width: fit-content;
-}
-
 .user-form-container {
+    margin-top: 30px;
     min-width: 700px;
 }
 
